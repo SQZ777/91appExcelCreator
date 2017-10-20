@@ -425,6 +425,7 @@
             this.ProductCategory.TabIndex = 31;
             this.ProductCategory.Text = "SEO0118";
             this.ProductCategory.Enter += new System.EventHandler(this.ProductCategory_Enter);
+            this.ProductCategory.Leave += new System.EventHandler(this.ProductCategory_Leave);
             // 
             // StoreClass
             // 
@@ -434,6 +435,8 @@
             this.StoreClass.Size = new System.Drawing.Size(176, 39);
             this.StoreClass.TabIndex = 32;
             this.StoreClass.Text = "巴拉巴拉";
+            this.StoreClass.Enter += new System.EventHandler(this.StoreClass_Enter);
+            this.StoreClass.Leave += new System.EventHandler(this.StoreClass_Leave);
             // 
             // ProductName
             // 
