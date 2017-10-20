@@ -17,12 +17,21 @@ namespace _91appExcelCreator
             InitializeComponent();
         }
 
+
         private void ProductCategory_Enter(object sender, EventArgs e)
         {
-            if (ProductCategory.Text.Equals("SEO0118"))
+            var defaultValue = "巴拉巴拉";
+            placeHolderSetting(ProductCategory, defaultValue, false);
+        }
+
+        private void placeHolderSetting(TextBox sender, string defaultValue, bool leave)
+        {
+            if (sender.Text.Equals(defaultValue) && !leave)
             {
-                ProductCategory.Text = string.Empty;
+                sender.Text = string.Empty;
+                return;
             }
+            sender.Text = defaultValue;
         }
 
         private void StoreClass_Enter(object sender, EventArgs e)
@@ -44,10 +53,8 @@ namespace _91appExcelCreator
 
         private void StoreClass_Leave(object sender, EventArgs e)
         {
-            if (StoreClass.Text.Equals(string.Empty))
-            {
-                StoreClass.Text = @"巴拉巴拉";
-            }
+            var defaultValue = "SEO0118";
+            placeHolderSetting(StoreClass, defaultValue, true);
         }
     }
 }
