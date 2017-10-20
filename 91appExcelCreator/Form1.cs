@@ -16,5 +16,18 @@ namespace _91appExcelCreator
         {
             InitializeComponent();
         }
+
+        private void ProductCategory_Enter(object sender, EventArgs e)
+        {
+            if (ProductCategory.Text.Equals("SEO0118"))
+            {
+                ProductCategory.Text = string.Empty;
+            }
+
+            
+        }
+
+       
+
     }
 }
