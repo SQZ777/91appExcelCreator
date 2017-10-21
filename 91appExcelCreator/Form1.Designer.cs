@@ -92,6 +92,7 @@
             this.Weight = new System.Windows.Forms.TextBox();
             this.ProductOption = new System.Windows.Forms.TextBox();
             this.LbProductOption = new System.Windows.Forms.Label();
+            this.output = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -445,7 +446,7 @@
             this.ProductName.Name = "ProductName";
             this.ProductName.Size = new System.Drawing.Size(176, 39);
             this.ProductName.TabIndex = 33;
-            this.ProductName.Text = "巴拉巴拉";
+            this.ProductName.Text = "球棒";
             // 
             // Quantity
             // 
@@ -454,7 +455,7 @@
             this.Quantity.Name = "Quantity";
             this.Quantity.Size = new System.Drawing.Size(176, 39);
             this.Quantity.TabIndex = 34;
-            this.Quantity.Text = "巴拉巴拉";
+            this.Quantity.Text = "100";
             // 
             // SugestPrice
             // 
@@ -463,7 +464,7 @@
             this.SugestPrice.Name = "SugestPrice";
             this.SugestPrice.Size = new System.Drawing.Size(176, 39);
             this.SugestPrice.TabIndex = 35;
-            this.SugestPrice.Text = "巴拉巴拉";
+            this.SugestPrice.Text = "10";
             // 
             // Price
             // 
@@ -472,7 +473,7 @@
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(176, 39);
             this.Price.TabIndex = 36;
-            this.Price.Text = "巴拉巴拉";
+            this.Price.Text = "10";
             // 
             // Cost
             // 
@@ -481,7 +482,7 @@
             this.Cost.Name = "Cost";
             this.Cost.Size = new System.Drawing.Size(176, 39);
             this.Cost.TabIndex = 37;
-            this.Cost.Text = "巴拉巴拉";
+            this.Cost.Text = "10";
             // 
             // HighestBuyQuantity
             // 
@@ -490,7 +491,7 @@
             this.HighestBuyQuantity.Name = "HighestBuyQuantity";
             this.HighestBuyQuantity.Size = new System.Drawing.Size(176, 39);
             this.HighestBuyQuantity.TabIndex = 38;
-            this.HighestBuyQuantity.Text = "巴拉巴拉";
+            this.HighestBuyQuantity.Text = "2";
             // 
             // StartDateTime
             // 
@@ -509,6 +510,7 @@
             this.EndDateTime.Name = "EndDateTime";
             this.EndDateTime.Size = new System.Drawing.Size(200, 39);
             this.EndDateTime.TabIndex = 39;
+            this.EndDateTime.Value = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
             // 
             // Delivery
             // 
@@ -517,7 +519,7 @@
             this.Delivery.Name = "Delivery";
             this.Delivery.Size = new System.Drawing.Size(176, 39);
             this.Delivery.TabIndex = 40;
-            this.Delivery.Text = "巴拉巴拉";
+            this.Delivery.Text = "一般";
             // 
             // ExpectedShippingDay
             // 
@@ -526,7 +528,6 @@
             this.ExpectedShippingDay.Name = "ExpectedShippingDay";
             this.ExpectedShippingDay.Size = new System.Drawing.Size(176, 39);
             this.ExpectedShippingDay.TabIndex = 41;
-            this.ExpectedShippingDay.Text = "巴拉巴拉";
             // 
             // AfterPayShippingDay
             // 
@@ -535,7 +536,6 @@
             this.AfterPayShippingDay.Name = "AfterPayShippingDay";
             this.AfterPayShippingDay.Size = new System.Drawing.Size(176, 39);
             this.AfterPayShippingDay.TabIndex = 42;
-            this.AfterPayShippingDay.Text = "巴拉巴拉";
             // 
             // ShippingType
             // 
@@ -544,7 +544,6 @@
             this.ShippingType.Name = "ShippingType";
             this.ShippingType.Size = new System.Drawing.Size(176, 39);
             this.ShippingType.TabIndex = 43;
-            this.ShippingType.Text = "巴拉巴拉";
             // 
             // PayType
             // 
@@ -553,7 +552,6 @@
             this.PayType.Name = "PayType";
             this.PayType.Size = new System.Drawing.Size(176, 39);
             this.PayType.TabIndex = 44;
-            this.PayType.Text = "巴拉巴拉";
             // 
             // ProductOption1
             // 
@@ -652,7 +650,6 @@
             this.SEOTitle.Name = "SEOTitle";
             this.SEOTitle.Size = new System.Drawing.Size(176, 39);
             this.SEOTitle.TabIndex = 55;
-            this.SEOTitle.Text = "巴拉巴拉";
             // 
             // SEOKeyword
             // 
@@ -661,7 +658,6 @@
             this.SEOKeyword.Name = "SEOKeyword";
             this.SEOKeyword.Size = new System.Drawing.Size(176, 39);
             this.SEOKeyword.TabIndex = 56;
-            this.SEOKeyword.Text = "巴拉巴拉";
             // 
             // SEODescription
             // 
@@ -670,7 +666,6 @@
             this.SEODescription.Name = "SEODescription";
             this.SEODescription.Size = new System.Drawing.Size(176, 39);
             this.SEODescription.TabIndex = 57;
-            this.SEODescription.Text = "巴拉巴拉";
             // 
             // ProductImg1
             // 
@@ -706,7 +701,6 @@
             this.ProductOption.Name = "ProductOption";
             this.ProductOption.Size = new System.Drawing.Size(176, 39);
             this.ProductOption.TabIndex = 62;
-            this.ProductOption.Text = "巴拉巴拉";
             // 
             // LbProductOption
             // 
@@ -719,11 +713,22 @@
             this.LbProductOption.Text = "商品選項一:";
             this.LbProductOption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // output
+            // 
+            this.output.Location = new System.Drawing.Point(47, 891);
+            this.output.Name = "output";
+            this.output.Size = new System.Drawing.Size(213, 79);
+            this.output.TabIndex = 63;
+            this.output.Text = "輸出";
+            this.output.UseVisualStyleBackColor = true;
+            this.output.Click += new System.EventHandler(this.output_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1308, 1011);
+            this.Controls.Add(this.output);
             this.Controls.Add(this.ProductOption);
             this.Controls.Add(this.LbProductOption);
             this.Controls.Add(this.Weight);
@@ -861,6 +866,7 @@
         private System.Windows.Forms.TextBox Weight;
         private System.Windows.Forms.TextBox ProductOption;
         private System.Windows.Forms.Label LbProductOption;
+        private System.Windows.Forms.Button output;
     }
 }
 
