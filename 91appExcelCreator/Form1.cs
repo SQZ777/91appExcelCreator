@@ -20,41 +20,38 @@ namespace _91appExcelCreator
 
         private void ProductCategory_Enter(object sender, EventArgs e)
         {
-            var defaultValue = "巴拉巴拉";
-            placeHolderSetting(ProductCategory, defaultValue, false);
+            var defaultValue = "SEO0118";
+            PlaceHolderSetting(ProductCategory, defaultValue, false);
         }
 
-        private void placeHolderSetting(TextBox sender, string defaultValue, bool leave)
+        private void ProductCategory_Leave(object sender, EventArgs e)
         {
-            if (sender.Text.Equals(defaultValue) && !leave)
-            {
-                sender.Text = string.Empty;
-                return;
-            }
-            sender.Text = defaultValue;
+
+            var defaultValue = "SEO0118";
+            PlaceHolderSetting(ProductCategory, defaultValue, true);
         }
 
         private void StoreClass_Enter(object sender, EventArgs e)
         {
-            if (StoreClass.Text.Equals("巴拉巴拉"))
-            {
-                StoreClass.Text = string.Empty;
-            }
-        }
 
-
-        private void ProductCategory_Leave(object sender, EventArgs e)
-        {
-            if (ProductCategory.Text.Equals(string.Empty))
-            {
-                ProductCategory.Text = @"SEO0118";
-            }
+            var defaultValue = "巴拉巴拉";
+            PlaceHolderSetting(StoreClass, defaultValue, false);
         }
 
         private void StoreClass_Leave(object sender, EventArgs e)
         {
-            var defaultValue = "SEO0118";
-            placeHolderSetting(StoreClass, defaultValue, true);
+            var defaultValue = "巴拉巴拉";
+            PlaceHolderSetting(StoreClass, defaultValue, true);
+        }
+
+        private static void PlaceHolderSetting(Control textBox, string defaultValue, bool leave)
+        {
+            if (textBox.Text.Equals(defaultValue) && !leave)
+            {
+                textBox.Text = string.Empty;
+                return;
+            }
+            textBox.Text = defaultValue;
         }
     }
 }
