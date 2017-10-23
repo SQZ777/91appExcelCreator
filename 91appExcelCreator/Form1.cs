@@ -20,7 +20,7 @@ namespace _91appExcelCreator
 
         private void ProductCategory_Enter(object sender, EventArgs e)
         {
-            var defaultValue = "巴拉巴拉";
+            var defaultValue = "SEO0118";
             placeHolderSetting(ProductCategory, defaultValue, false);
         }
 
@@ -53,7 +53,7 @@ namespace _91appExcelCreator
 
         private void StoreClass_Leave(object sender, EventArgs e)
         {
-            var defaultValue = "SEO0118";
+            var defaultValue = "巴拉巴拉";
             placeHolderSetting(StoreClass, defaultValue, true);
         }
     }

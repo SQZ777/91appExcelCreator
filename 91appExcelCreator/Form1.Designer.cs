@@ -454,7 +454,7 @@
             this.Quantity.Name = "Quantity";
             this.Quantity.Size = new System.Drawing.Size(176, 39);
             this.Quantity.TabIndex = 34;
-            this.Quantity.Text = "巴拉巴拉";
+            this.Quantity.Text = "10";
             // 
             // SugestPrice
             // 
@@ -463,7 +463,7 @@
             this.SugestPrice.Name = "SugestPrice";
             this.SugestPrice.Size = new System.Drawing.Size(176, 39);
             this.SugestPrice.TabIndex = 35;
-            this.SugestPrice.Text = "巴拉巴拉";
+            this.SugestPrice.Text = "10";
             // 
             // Price
             // 
@@ -472,7 +472,7 @@
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(176, 39);
             this.Price.TabIndex = 36;
-            this.Price.Text = "巴拉巴拉";
+            this.Price.Text = "10";
             // 
             // Cost
             // 
@@ -481,7 +481,7 @@
             this.Cost.Name = "Cost";
             this.Cost.Size = new System.Drawing.Size(176, 39);
             this.Cost.TabIndex = 37;
-            this.Cost.Text = "巴拉巴拉";
+            this.Cost.Text = "10";
             // 
             // HighestBuyQuantity
             // 
@@ -490,7 +490,7 @@
             this.HighestBuyQuantity.Name = "HighestBuyQuantity";
             this.HighestBuyQuantity.Size = new System.Drawing.Size(176, 39);
             this.HighestBuyQuantity.TabIndex = 38;
-            this.HighestBuyQuantity.Text = "巴拉巴拉";
+            this.HighestBuyQuantity.Text = "2";
             // 
             // StartDateTime
             // 
@@ -517,7 +517,7 @@
             this.Delivery.Name = "Delivery";
             this.Delivery.Size = new System.Drawing.Size(176, 39);
             this.Delivery.TabIndex = 40;
-            this.Delivery.Text = "巴拉巴拉";
+            this.Delivery.Text = "一般";
             // 
             // ExpectedShippingDay
             // 
@@ -526,7 +526,6 @@
             this.ExpectedShippingDay.Name = "ExpectedShippingDay";
             this.ExpectedShippingDay.Size = new System.Drawing.Size(176, 39);
             this.ExpectedShippingDay.TabIndex = 41;
-            this.ExpectedShippingDay.Text = "巴拉巴拉";
             // 
             // AfterPayShippingDay
             // 
@@ -535,7 +534,6 @@
             this.AfterPayShippingDay.Name = "AfterPayShippingDay";
             this.AfterPayShippingDay.Size = new System.Drawing.Size(176, 39);
             this.AfterPayShippingDay.TabIndex = 42;
-            this.AfterPayShippingDay.Text = "巴拉巴拉";
             // 
             // ShippingType
             // 
@@ -544,7 +542,6 @@
             this.ShippingType.Name = "ShippingType";
             this.ShippingType.Size = new System.Drawing.Size(176, 39);
             this.ShippingType.TabIndex = 43;
-            this.ShippingType.Text = "巴拉巴拉";
             // 
             // PayType
             // 
@@ -553,7 +550,6 @@
             this.PayType.Name = "PayType";
             this.PayType.Size = new System.Drawing.Size(176, 39);
             this.PayType.TabIndex = 44;
-            this.PayType.Text = "巴拉巴拉";
             // 
             // ProductOption1
             // 
@@ -562,7 +558,7 @@
             this.ProductOption1.Name = "ProductOption1";
             this.ProductOption1.Size = new System.Drawing.Size(176, 39);
             this.ProductOption1.TabIndex = 45;
-            this.ProductOption1.Text = "巴拉巴拉";
+            this.ProductOption1.Text = "顏色:紅色";
             // 
             // ProductOption2
             // 
@@ -571,7 +567,7 @@
             this.ProductOption2.Name = "ProductOption2";
             this.ProductOption2.Size = new System.Drawing.Size(176, 39);
             this.ProductOption2.TabIndex = 46;
-            this.ProductOption2.Text = "巴拉巴拉";
+            this.ProductOption2.Text = "尺寸:S";
             // 
             // ProductNumber
             // 
@@ -580,7 +576,7 @@
             this.ProductNumber.Name = "ProductNumber";
             this.ProductNumber.Size = new System.Drawing.Size(176, 39);
             this.ProductNumber.TabIndex = 47;
-            this.ProductNumber.Text = "巴拉巴拉";
+            this.ProductNumber.Text = "12345678";
             // 
             // StoreOption
             // 
@@ -589,7 +585,6 @@
             this.StoreOption.Name = "StoreOption";
             this.StoreOption.Size = new System.Drawing.Size(176, 39);
             this.StoreOption.TabIndex = 48;
-            this.StoreOption.Text = "巴拉巴拉";
             // 
             // ProductSpec
             // 
@@ -598,7 +593,6 @@
             this.ProductSpec.Name = "ProductSpec";
             this.ProductSpec.Size = new System.Drawing.Size(176, 39);
             this.ProductSpec.TabIndex = 49;
-            this.ProductSpec.Text = "巴拉巴拉";
             // 
             // textBox6
             // 
@@ -607,7 +601,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(176, 39);
             this.textBox6.TabIndex = 50;
-            this.textBox6.Text = "巴拉巴拉";
+            this.textBox6.Text = ".jpg";
             // 
             // SalePoint
             // 
@@ -616,7 +610,7 @@
             this.SalePoint.Name = "SalePoint";
             this.SalePoint.Size = new System.Drawing.Size(176, 39);
             this.SalePoint.TabIndex = 51;
-            this.SalePoint.Text = "巴拉巴拉";
+            this.SalePoint.Text = "測試";
             // 
             // StoreFeature
             // 
@@ -625,7 +619,7 @@
             this.StoreFeature.Name = "StoreFeature";
             this.StoreFeature.Size = new System.Drawing.Size(176, 39);
             this.StoreFeature.TabIndex = 52;
-            this.StoreFeature.Text = "巴拉巴拉";
+            this.StoreFeature.Text = "空";
             // 
             // Detail
             // 
@@ -634,7 +628,7 @@
             this.Detail.Name = "Detail";
             this.Detail.Size = new System.Drawing.Size(176, 39);
             this.Detail.TabIndex = 53;
-            this.Detail.Text = "巴拉巴拉";
+            this.Detail.Text = "空";
             // 
             // StoreName
             // 
@@ -643,7 +637,7 @@
             this.StoreName.Name = "StoreName";
             this.StoreName.Size = new System.Drawing.Size(176, 39);
             this.StoreName.TabIndex = 54;
-            this.StoreName.Text = "巴拉巴拉";
+            this.StoreName.Text = "FB Shop測試商店(請勿動資料)";
             // 
             // SEOTitle
             // 
@@ -652,7 +646,6 @@
             this.SEOTitle.Name = "SEOTitle";
             this.SEOTitle.Size = new System.Drawing.Size(176, 39);
             this.SEOTitle.TabIndex = 55;
-            this.SEOTitle.Text = "巴拉巴拉";
             // 
             // SEOKeyword
             // 
@@ -661,7 +654,6 @@
             this.SEOKeyword.Name = "SEOKeyword";
             this.SEOKeyword.Size = new System.Drawing.Size(176, 39);
             this.SEOKeyword.TabIndex = 56;
-            this.SEOKeyword.Text = "巴拉巴拉";
             // 
             // SEODescription
             // 
@@ -670,7 +662,6 @@
             this.SEODescription.Name = "SEODescription";
             this.SEODescription.Size = new System.Drawing.Size(176, 39);
             this.SEODescription.TabIndex = 57;
-            this.SEODescription.Text = "巴拉巴拉";
             // 
             // ProductImg1
             // 
@@ -679,7 +670,6 @@
             this.ProductImg1.Name = "ProductImg1";
             this.ProductImg1.Size = new System.Drawing.Size(176, 39);
             this.ProductImg1.TabIndex = 58;
-            this.ProductImg1.Text = "巴拉巴拉";
             // 
             // Volume
             // 
@@ -688,7 +678,6 @@
             this.Volume.Name = "Volume";
             this.Volume.Size = new System.Drawing.Size(176, 39);
             this.Volume.TabIndex = 59;
-            this.Volume.Text = "巴拉巴拉";
             // 
             // Weight
             // 
@@ -697,7 +686,6 @@
             this.Weight.Name = "Weight";
             this.Weight.Size = new System.Drawing.Size(176, 39);
             this.Weight.TabIndex = 60;
-            this.Weight.Text = "巴拉巴拉";
             // 
             // ProductOption
             // 
@@ -706,7 +694,7 @@
             this.ProductOption.Name = "ProductOption";
             this.ProductOption.Size = new System.Drawing.Size(176, 39);
             this.ProductOption.TabIndex = 62;
-            this.ProductOption.Text = "巴拉巴拉";
+            this.ProductOption.Text = "有";
             // 
             // LbProductOption
             // 
@@ -714,9 +702,9 @@
             this.LbProductOption.Font = new System.Drawing.Font("微軟正黑體", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.LbProductOption.Location = new System.Drawing.Point(140, 816);
             this.LbProductOption.Name = "LbProductOption";
-            this.LbProductOption.Size = new System.Drawing.Size(204, 45);
+            this.LbProductOption.Size = new System.Drawing.Size(169, 45);
             this.LbProductOption.TabIndex = 61;
-            this.LbProductOption.Text = "商品選項一:";
+            this.LbProductOption.Text = "商品選項:";
             this.LbProductOption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1
