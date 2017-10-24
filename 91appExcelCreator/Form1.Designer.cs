@@ -513,6 +513,7 @@
             this.EndDateTime.Name = "EndDateTime";
             this.EndDateTime.Size = new System.Drawing.Size(176, 25);
             this.EndDateTime.TabIndex = 39;
+            this.EndDateTime.Value = new System.DateTime(2018, 10, 23, 0, 0, 0, 0);
             // 
             // Delivery
             // 
@@ -754,7 +755,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 820);
+            this.ClientSize = new System.Drawing.Size(801, 839);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.amountOfData);
             this.Controls.Add(this.CreateImgBtn);

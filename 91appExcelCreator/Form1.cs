@@ -140,7 +140,7 @@ namespace _91appExcelCreator
             {
                 excelApp.Cells[i, 1] = ProductCategory.Text;
                 excelApp.Cells[i, 2] = StoreClass.Text;
-                excelApp.Cells[i, 3] = ProductName.Text + (i - 2);
+                excelApp.Cells[i, 3] = ProductName.Text + (i - 1);
                 excelApp.Cells[i, 4] = Quantity.Text;
                 excelApp.Cells[i, 5] = SugestPrice.Text;
                 excelApp.Cells[i, 6] = Price.Text;
@@ -159,7 +159,7 @@ namespace _91appExcelCreator
                 excelApp.Cells[i, 19] = ProductNumber.Text;
                 excelApp.Cells[i, 20] = ProductOptionImg.Text;
                 excelApp.Cells[i, 21] = ProductSpec.Text;
-                excelApp.Cells[i, 22] = (i - 2) + ProductImg1.Text;
+                excelApp.Cells[i, 22] = (i - 1) + ProductImg1.Text;
                 excelApp.Cells[i, 32] = SalePoint.Text;
                 excelApp.Cells[i, 33] = ProductFeature.Text;
                 excelApp.Cells[i, 34] = Detail.Text;
@@ -236,7 +236,7 @@ namespace _91appExcelCreator
 
             try
             {
-                Font fontCounter = new Font("微軟正黑體", 36);
+                Font fontCounter = new Font("微軟正黑體", 48);
 
                 // calculate size of the string.
                 newBitmap = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
@@ -248,15 +248,19 @@ namespace _91appExcelCreator
                 newBitmap.Dispose();
                 newBitmap = new Bitmap(nWidth, nHeight, PixelFormat.Format32bppArgb);
                 g = Graphics.FromImage(newBitmap);
-                g.FillRectangle(new SolidBrush(Color.White),
+                g.FillRectangle(new SolidBrush(Color.Cyan),
                     new Rectangle(0, 0, nWidth, nHeight));
 
                 g.DrawString("測試專用", fontCounter,
-                    new SolidBrush(Color.Black), 200 - (stringSize.Width / 2), 200 - (stringSize.Height / 2));
+                    new SolidBrush(Color.DimGray), 200 - (stringSize.Width / 2), 200 - (stringSize.Height / 2));
+
+                g.DrawString("專用測試", fontCounter,
+                    new SolidBrush(Color.Crimson), 250 - (stringSize.Width / 2), 100 - (stringSize.Height / 2));
+
                 checkFolder();
                 try
                 {
-                    for (int i = 0; i < int.Parse(amountOfData.Text); i++)
+                    for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
                         newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + @".jpg", ImageFormat.Jpeg);
                     }
