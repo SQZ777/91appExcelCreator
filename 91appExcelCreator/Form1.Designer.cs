@@ -438,7 +438,7 @@
             this.StoreClass.Name = "StoreClass";
             this.StoreClass.Size = new System.Drawing.Size(176, 25);
             this.StoreClass.TabIndex = 32;
-            this.StoreClass.Text = "巴拉巴拉";
+            this.StoreClass.Text = "人氣商品推薦";
             this.StoreClass.Enter += new System.EventHandler(this.StoreClass_Enter);
             this.StoreClass.Leave += new System.EventHandler(this.StoreClass_Leave);
             // 
@@ -642,7 +642,7 @@
             this.StoreName.Name = "StoreName";
             this.StoreName.Size = new System.Drawing.Size(176, 25);
             this.StoreName.TabIndex = 54;
-            this.StoreName.Text = "FB Shop測試商店(請勿動資料)";
+            this.StoreName.Text = "Anyway熱情測試商店";
             // 
             // SEOTitle
             // 

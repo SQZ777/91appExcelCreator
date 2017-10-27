@@ -237,31 +237,25 @@ namespace _91appExcelCreator
             try
             {
                 Font fontCounter = new Font("微軟正黑體", 48);
-
-                // calculate size of the string.
-                newBitmap = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
-                g = Graphics.FromImage(newBitmap);
-                SizeF stringSize = g.MeasureString("測試專用", fontCounter);
-                int nWidth = 400;
-                int nHeight = 400;
-                g.Dispose();
-                newBitmap.Dispose();
-                newBitmap = new Bitmap(nWidth, nHeight, PixelFormat.Format32bppArgb);
+                int width = 400;
+                int height = 400;
+                //g.Dispose();
+                newBitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
                 g = Graphics.FromImage(newBitmap);
                 g.FillRectangle(new SolidBrush(Color.Cyan),
-                    new Rectangle(0, 0, nWidth, nHeight));
-
-                g.DrawString("測試專用", fontCounter,
-                    new SolidBrush(Color.DimGray), 200 - (stringSize.Width / 2), 200 - (stringSize.Height / 2));
-
-                g.DrawString("專用測試", fontCounter,
-                    new SolidBrush(Color.Crimson), 250 - (stringSize.Width / 2), 100 - (stringSize.Height / 2));
-
+                    new Rectangle(0, 0, width, height));
                 checkFolder();
                 try
                 {
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
+                        g.Clear(Color.LightCoral);
+                        var stringSize = g.MeasureString("測試專用", fontCounter);
+                        g.DrawString("測試專用" + i, fontCounter,
+                            new SolidBrush(Color.GreenYellow), width / 2+50 -(stringSize.Width / 2), height/2-50 - (stringSize.Height / 2));
+                        g.DrawString( i + "專用測試", fontCounter,
+                            new SolidBrush(Color.Aqua), width / 2-50 - (stringSize.Width / 2), height / 2+50 - (stringSize.Height / 2));
+
                         newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + @".jpg", ImageFormat.Jpeg);
                     }
                     MessageBox.Show("圖片建立完成");
@@ -271,7 +265,7 @@ namespace _91appExcelCreator
                     MessageBox.Show(exception.ToString());
                     throw;
                 }
-                
+
             }
             catch (Exception ex)
             {
