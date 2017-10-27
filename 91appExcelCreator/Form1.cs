@@ -231,17 +231,13 @@ namespace _91appExcelCreator
 
         private void CreateImgBtn_Click(object sender, EventArgs e)
         {
-            Bitmap newBitmap = null;
-            Graphics g = null;
-
+            var width = 400;
+            var height = 400;
+            var newBitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
+            var g = Graphics.FromImage(newBitmap);
             try
             {
-                Font fontCounter = new Font("微軟正黑體", 48);
-                int width = 400;
-                int height = 400;
-                //g.Dispose();
-                newBitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
-                g = Graphics.FromImage(newBitmap);
+                var fontCounter = new Font("微軟正黑體", 48);
                 g.FillRectangle(new SolidBrush(Color.Cyan),
                     new Rectangle(0, 0, width, height));
                 checkFolder();
@@ -249,16 +245,18 @@ namespace _91appExcelCreator
                 {
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
+
                         g.Clear(Color.LightCoral);
-                        var stringSize = g.MeasureString("測試專用", fontCounter);
-                        g.DrawString("測試專用" + i, fontCounter,
-                            new SolidBrush(Color.GreenYellow), width / 2+50 -(stringSize.Width / 2), height/2-50 - (stringSize.Height / 2));
-                        g.DrawString( i + "專用測試", fontCounter,
-                            new SolidBrush(Color.Aqua), width / 2-50 - (stringSize.Width / 2), height / 2+50 - (stringSize.Height / 2));
+                        int stringWidth = (int)(g.MeasureString("測試專用" + i, fontCounter).Width / 2);
+                        var stringHeight = (int)g.MeasureString("測試專用" + i, fontCounter).Height / 2;
+
+                        Drawing(g, "測試專用" + i, fontCounter, Color.Bisque, (width / 2) - stringWidth, (height / 2) - stringHeight - 150);
+                        Drawing(g, "專用" + i + "測試", fontCounter, Color.Brown, (width / 2) - stringWidth, (height / 2) - stringHeight);
+                        Drawing(g, i + "專用測試", fontCounter, Color.Aqua, (width / 2) - stringWidth, (height / 2) - stringHeight + 150);
 
                         newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + @".jpg", ImageFormat.Jpeg);
                     }
-                    MessageBox.Show("圖片建立完成");
+                    MessageBox.Show(@"圖片建立完成");
                 }
                 catch (Exception exception)
                 {
@@ -278,10 +276,15 @@ namespace _91appExcelCreator
             }
         }
 
+        private static void Drawing(Graphics g, string drawString, Font font, Color color, int positionX, int positionY)
+        {
+            g.DrawString(drawString, font, new SolidBrush(color), positionX, positionY);
+        }
+
         private void checkFolder()
         {
-            string folderName = @"C:\Users\Darren Zhang\Documents\Test\";
-            string pathString = System.IO.Path.Combine(folderName);
+            var folderName = @"C:\Users\Darren Zhang\Documents\Test\";
+            var pathString = System.IO.Path.Combine(folderName);
             System.IO.Directory.CreateDirectory(pathString);
         }
     }
