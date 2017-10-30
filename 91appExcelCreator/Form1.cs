@@ -43,16 +43,10 @@ namespace _91appExcelCreator
 
         private void StoreClass_Enter(object sender, EventArgs e)
         {
-            var defaultValue = "巴拉巴拉";
-            placeHolderSetting(StoreClass, defaultValue, false);
         }
 
         private void StoreClass_Leave(object sender, EventArgs e)
         {
-            if (ProductCategory.Text.Equals(string.Empty))
-            {
-                ProductCategory.Text = @"巴拉巴拉";
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,7 +104,7 @@ namespace _91appExcelCreator
             wRange.Interior.Color = ColorTranslator.ToOle(Color.DimGray);
             return wSheet;
         }
-        private static Excel._Worksheet AddWorkSheet(Excel._Workbook wBook, Excel.Application excelApp, string sheetName, bool needCreate)
+        private static void AddWorkSheet(Excel._Workbook wBook, Excel.Application excelApp, string sheetName, bool needCreate)
         {
             excelApp.Worksheets.Add();
             var wSheet = (Excel._Worksheet)wBook.Worksheets[1];
@@ -123,8 +117,6 @@ namespace _91appExcelCreator
                 excelApp.Cells[3, 1] = "預購";
                 excelApp.Cells[4, 1] = "訂製";
             }
-            return wSheet;
-
         }
 
         private void AutoFitExcelContent(Excel._Worksheet workSheet)
@@ -240,21 +232,22 @@ namespace _91appExcelCreator
                 var fontCounter = new Font("微軟正黑體", 48);
                 g.FillRectangle(new SolidBrush(Color.Cyan),
                     new Rectangle(0, 0, width, height));
-                checkFolder();
+                checkAndCreateFolder();
                 try
                 {
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
 
-                        g.Clear(Color.LightCoral);
                         int stringWidth = (int)(g.MeasureString("測試專用" + i, fontCounter).Width / 2);
                         var stringHeight = (int)g.MeasureString("測試專用" + i, fontCounter).Height / 2;
+                        g.Clear(Color.LightPink);
+                        var middleWidth = (width / 2) - stringWidth;
+                        var middleHeight = (height / 2) - stringHeight;
+                        Drawing(g, "測試專用" + i, fontCounter, Color.Bisque, middleWidth, middleHeight - 150);
+                        Drawing(g, "專用" + i + "測試", fontCounter, Color.Brown, middleWidth, middleHeight);
+                        Drawing(g, i + "專用測試", fontCounter, Color.Aqua, middleWidth, middleHeight + 150);
 
-                        Drawing(g, "測試專用" + i, fontCounter, Color.Bisque, (width / 2) - stringWidth, (height / 2) - stringHeight - 150);
-                        Drawing(g, "專用" + i + "測試", fontCounter, Color.Brown, (width / 2) - stringWidth, (height / 2) - stringHeight);
-                        Drawing(g, i + "專用測試", fontCounter, Color.Aqua, (width / 2) - stringWidth, (height / 2) - stringHeight + 150);
-
-                        newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + @".jpg", ImageFormat.Jpeg);
+                        newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     MessageBox.Show(@"圖片建立完成");
                 }
@@ -269,6 +262,7 @@ namespace _91appExcelCreator
             {
                 Console.WriteLine(ex.ToString());
             }
+
             finally
             {
                 g?.Dispose();
@@ -281,7 +275,7 @@ namespace _91appExcelCreator
             g.DrawString(drawString, font, new SolidBrush(color), positionX, positionY);
         }
 
-        private void checkFolder()
+        private void checkAndCreateFolder()
         {
             var folderName = @"C:\Users\Darren Zhang\Documents\Test\";
             var pathString = System.IO.Path.Combine(folderName);

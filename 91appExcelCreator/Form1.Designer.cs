@@ -96,6 +96,7 @@
             this.amountOfData = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.CreateImgBtn = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -903,6 +904,7 @@
         private System.Windows.Forms.TextBox amountOfData;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button CreateImgBtn;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
