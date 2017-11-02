@@ -11,6 +11,7 @@ namespace _91appExcelCreator
 {
     public partial class Form1 : Form
     {
+        readonly PictureTheme _pictureTheme = new PictureTheme();
         public Form1()
         {
             InitializeComponent();
@@ -165,7 +166,7 @@ namespace _91appExcelCreator
             }
         }
 
-        private static void InitialExcelTitles(Excel.Application excelApp)
+        private static void InitialExcelTitles(Excel._Application excelApp)
         {
             excelApp.Cells[1, 1] = "商品品類";
             excelApp.Cells[1, 2] = "商店類別";
@@ -214,6 +215,11 @@ namespace _91appExcelCreator
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _pictureTheme.BackgroundColor = Color.Black;
+            _pictureTheme.Words = "測試專用";
+            _pictureTheme.Height = 400;
+            _pictureTheme.Width = 400;
+
         }
 
         private void Form1_Activated(object sender, EventArgs e)
@@ -223,30 +229,26 @@ namespace _91appExcelCreator
 
         private void CreateImgBtn_Click(object sender, EventArgs e)
         {
-            var width = 400;
-            var height = 400;
-            var newBitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
+            var newBitmap = new Bitmap(_pictureTheme.Width, _pictureTheme.Height, PixelFormat.Format32bppArgb);
             var g = Graphics.FromImage(newBitmap);
             try
             {
                 var fontCounter = new Font("微軟正黑體", 48);
-                g.FillRectangle(new SolidBrush(Color.Cyan),
-                    new Rectangle(0, 0, width, height));
+                g.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
+                    new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
                 checkAndCreateFolder();
                 try
                 {
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
-
-                        int stringWidth = (int)(g.MeasureString("測試專用" + i, fontCounter).Width / 2);
+                        int stringWidth = (int)g.MeasureString("測試專用" + i, fontCounter).Width / 2;
                         var stringHeight = (int)g.MeasureString("測試專用" + i, fontCounter).Height / 2;
-                        g.Clear(Color.LightPink);
-                        var middleWidth = (width / 2) - stringWidth;
-                        var middleHeight = (height / 2) - stringHeight;
-                        Drawing(g, "測試專用" + i, fontCounter, Color.Bisque, middleWidth, middleHeight - 150);
-                        Drawing(g, "專用" + i + "測試", fontCounter, Color.Brown, middleWidth, middleHeight);
-                        Drawing(g, i + "專用測試", fontCounter, Color.Aqua, middleWidth, middleHeight + 150);
-
+                        g.Clear(Color.DarkRed);
+                        var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
+                        var middleHeight = (_pictureTheme.Width / 2) - stringHeight;
+                        Drawing(g, "測試專用" + i, fontCounter, Color.DarkMagenta, middleWidth, middleHeight - 150);
+                        Drawing(g, "專用" + i + "測試", fontCounter, Color.Yellow, middleWidth, middleHeight);
+                        Drawing(g, i + "專用測試", fontCounter, Color.SeaGreen, middleWidth, middleHeight + 150);
                         newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     MessageBox.Show(@"圖片建立完成");
@@ -280,6 +282,13 @@ namespace _91appExcelCreator
             var folderName = @"C:\Users\Darren Zhang\Documents\Test\";
             var pathString = System.IO.Path.Combine(folderName);
             System.IO.Directory.CreateDirectory(pathString);
+        }
+        private void PickColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(colorDialog1.Color.ToString());
+            }
         }
     }
 }

@@ -97,6 +97,7 @@
             this.label32 = new System.Windows.Forms.Label();
             this.CreateImgBtn = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.PickColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -450,7 +451,7 @@
             this.ProductName.Name = "ProductName";
             this.ProductName.Size = new System.Drawing.Size(176, 25);
             this.ProductName.TabIndex = 33;
-            this.ProductName.Text = "巴拉巴拉";
+            this.ProductName.Text = "FBTest=";
             // 
             // Quantity
             // 
@@ -643,7 +644,7 @@
             this.StoreName.Name = "StoreName";
             this.StoreName.Size = new System.Drawing.Size(176, 25);
             this.StoreName.TabIndex = 54;
-            this.StoreName.Text = "Anyway熱情測試商店";
+            this.StoreName.Text = "FB SHOP測試商店_1";
             // 
             // SEOTitle
             // 
@@ -726,7 +727,7 @@
             // amountOfData
             // 
             this.amountOfData.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.amountOfData.Location = new System.Drawing.Point(226, 748);
+            this.amountOfData.Location = new System.Drawing.Point(135, 724);
             this.amountOfData.Name = "amountOfData";
             this.amountOfData.Size = new System.Drawing.Size(176, 39);
             this.amountOfData.TabIndex = 64;
@@ -736,7 +737,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(222, 725);
+            this.label32.Location = new System.Drawing.Point(131, 701);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 21);
             this.label32.TabIndex = 65;
@@ -752,11 +753,22 @@
             this.CreateImgBtn.UseVisualStyleBackColor = true;
             this.CreateImgBtn.Click += new System.EventHandler(this.CreateImgBtn_Click);
             // 
+            // PickColor
+            // 
+            this.PickColor.Location = new System.Drawing.Point(359, 769);
+            this.PickColor.Name = "PickColor";
+            this.PickColor.Size = new System.Drawing.Size(176, 51);
+            this.PickColor.TabIndex = 66;
+            this.PickColor.Text = "PickBackgroundColor";
+            this.PickColor.UseVisualStyleBackColor = true;
+            this.PickColor.Click += new System.EventHandler(this.PickColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 839);
+            this.Controls.Add(this.PickColor);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.amountOfData);
             this.Controls.Add(this.CreateImgBtn);
@@ -905,6 +917,7 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button CreateImgBtn;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button PickColor;
     }
 }
 
