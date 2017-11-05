@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Threading;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 
@@ -52,7 +49,7 @@ namespace _91appExcelCreator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string pathFile = @"C:\Users\Darren Zhang\Documents\test.xlsx";
+            string pathFile = @"D:\Test\test.xlsx";
             var excelApp = new Excel.Application
             {
                 Visible = true,
@@ -243,13 +240,13 @@ namespace _91appExcelCreator
                     {
                         int stringWidth = (int)g.MeasureString("測試專用" + i, fontCounter).Width / 2;
                         var stringHeight = (int)g.MeasureString("測試專用" + i, fontCounter).Height / 2;
-                        g.Clear(Color.DarkRed);
+                        g.Clear(_pictureTheme.BackgroundColor);
                         var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
                         var middleHeight = (_pictureTheme.Width / 2) - stringHeight;
                         Drawing(g, "測試專用" + i, fontCounter, Color.DarkMagenta, middleWidth, middleHeight - 150);
                         Drawing(g, "專用" + i + "測試", fontCounter, Color.Yellow, middleWidth, middleHeight);
                         Drawing(g, i + "專用測試", fontCounter, Color.SeaGreen, middleWidth, middleHeight + 150);
-                        newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
+                        newBitmap.Save(@"D:\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     MessageBox.Show(@"圖片建立完成");
                 }
@@ -279,7 +276,7 @@ namespace _91appExcelCreator
 
         private void checkAndCreateFolder()
         {
-            var folderName = @"C:\Users\Darren Zhang\Documents\Test\";
+            var folderName = @"D:\Test\";
             var pathString = System.IO.Path.Combine(folderName);
             System.IO.Directory.CreateDirectory(pathString);
         }
@@ -287,7 +284,7 @@ namespace _91appExcelCreator
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(colorDialog1.Color.ToString());
+                _pictureTheme.BackgroundColor = colorDialog1.Color;
             }
         }
     }
