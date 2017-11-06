@@ -246,7 +246,7 @@ namespace _91appExcelCreator
                         Drawing(g, "測試專用" + i, fontCounter, Color.DarkMagenta, middleWidth, middleHeight - 150);
                         Drawing(g, "專用" + i + "測試", fontCounter, Color.Yellow, middleWidth, middleHeight);
                         Drawing(g, i + "專用測試", fontCounter, Color.SeaGreen, middleWidth, middleHeight + 150);
-                        newBitmap.Save(@"D:\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
+                        newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     MessageBox.Show(@"圖片建立完成");
                 }
@@ -276,7 +276,7 @@ namespace _91appExcelCreator
 
         private void checkAndCreateFolder()
         {
-            var folderName = @"D:\Test\";
+            var folderName = @"C:\Users\Darren Zhang\Documents\Test\";
             var pathString = System.IO.Path.Combine(folderName);
             System.IO.Directory.CreateDirectory(pathString);
         }
