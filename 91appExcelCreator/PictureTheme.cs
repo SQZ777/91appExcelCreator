@@ -13,5 +13,6 @@ namespace _91appExcelCreator
         public string Words { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public Font FontCounter { get; set; }
     }
 }
