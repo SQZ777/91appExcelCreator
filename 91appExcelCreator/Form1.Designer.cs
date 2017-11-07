@@ -727,7 +727,7 @@
             // amountOfData
             // 
             this.amountOfData.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.amountOfData.Location = new System.Drawing.Point(135, 724);
+            this.amountOfData.Location = new System.Drawing.Point(359, 726);
             this.amountOfData.Name = "amountOfData";
             this.amountOfData.Size = new System.Drawing.Size(176, 39);
             this.amountOfData.TabIndex = 64;
@@ -737,7 +737,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(131, 701);
+            this.label32.Location = new System.Drawing.Point(355, 702);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 21);
             this.label32.TabIndex = 65;
