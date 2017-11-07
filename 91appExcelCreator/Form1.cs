@@ -41,7 +41,7 @@ namespace _91appExcelCreator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string pathFile = @"C:\Users\Darren Zhang\Documents\" + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
+            string pathFile = @"C:\Users\" + Environment.UserName + @"\Documents\" + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
             var excelApp = new Excel.Application
             {
                 Visible = true,
@@ -242,7 +242,7 @@ namespace _91appExcelCreator
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
                         CreateImg(g, i);
-                        newBitmap.Save(@"C:\Users\Darren Zhang\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
+                        newBitmap.Save(@"C:\Users\" + Environment.UserName + @"\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     MessageBox.Show(@"圖片建立完成");
                 }
@@ -291,7 +291,7 @@ namespace _91appExcelCreator
 
         private void checkAndCreateFolder()
         {
-            var folderName = @"C:\Users\Darren Zhang\Documents\Test\";
+            var folderName = @"C:\Users\" + Environment.UserName + @"\Documents\Test\";
             var pathString = System.IO.Path.Combine(folderName);
             System.IO.Directory.CreateDirectory(pathString);
         }
