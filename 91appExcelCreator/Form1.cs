@@ -18,7 +18,10 @@ namespace _91appExcelCreator
         private void ProductCategory_Enter(object sender, EventArgs e)
         {
             var defaultValue = "ATM付款";
-            placeHolderSetting(ProductCategory, defaultValue, false);
+            if (defaultValue.Equals(ProductCategory.Text))
+            {
+                placeHolderSetting(ProductCategory, defaultValue, false);
+            }
         }
 
         private void ProductCategory_Leave(object sender, EventArgs e)
@@ -29,7 +32,7 @@ namespace _91appExcelCreator
             }
         }
 
-        private void placeHolderSetting(TextBox sender, string defaultValue, bool leave)
+        private void placeHolderSetting(Control sender, string defaultValue, bool leave)
         {
             if (sender.Text.Equals(defaultValue) && !leave)
             {
