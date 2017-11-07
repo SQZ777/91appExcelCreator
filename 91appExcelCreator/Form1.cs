@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace _91appExcelCreator
 {
     public partial class Form1 : Form
     {
-        readonly PictureTheme _pictureTheme = new PictureTheme();
+        private readonly PictureTheme _pictureTheme = new PictureTheme();
+
         public Form1()
         {
             InitializeComponent();
         }
 
-
         private void ProductCategory_Enter(object sender, EventArgs e)
         {
             var defaultValue = "ATM付款";
-            placeHolderSetting(ProductCategory, defaultValue, false);
+            if (defaultValue.Equals(ProductCategory.Text))
+            {
+                placeHolderSetting(ProductCategory, defaultValue, false);
+            }
         }
-
 
         private void ProductCategory_Leave(object sender, EventArgs e)
         {
@@ -29,7 +31,8 @@ namespace _91appExcelCreator
                 ProductCategory.Text = @"ATM付款";
             }
         }
-        private void placeHolderSetting(TextBox sender, string defaultValue, bool leave)
+
+        private void placeHolderSetting(Control sender, string defaultValue, bool leave)
         {
             if (sender.Text.Equals(defaultValue) && !leave)
             {
@@ -39,17 +42,9 @@ namespace _91appExcelCreator
             sender.Text = defaultValue;
         }
 
-        private void StoreClass_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void StoreClass_Leave(object sender, EventArgs e)
-        {
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            string pathFile = @"D:\Test\test.xlsx";
+            string pathFile = @"C:\Users\" + Environment.UserName + @"\Documents\" + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
             var excelApp = new Excel.Application
             {
                 Visible = true,
@@ -67,7 +62,6 @@ namespace _91appExcelCreator
                 worksheet.Move(wBook.Sheets[1]);
                 AddWorkSheet(wBook, excelApp, "資料驗證, 請勿刪除", true);
                 worksheet.Move(wBook.Sheets[1]);
-
                 try
                 {
                     wBook.SaveAs(pathFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
@@ -102,6 +96,7 @@ namespace _91appExcelCreator
             wRange.Interior.Color = ColorTranslator.ToOle(Color.DimGray);
             return wSheet;
         }
+
         private static void AddWorkSheet(Excel._Workbook wBook, Excel.Application excelApp, string sheetName, bool needCreate)
         {
             excelApp.Worksheets.Add();
@@ -126,7 +121,7 @@ namespace _91appExcelCreator
 
         private void DoExcel(Excel._Application excelApp, int amountValue)
         {
-            for (int i = 2; i < amountValue + 2; i++)
+            for (var i = 2; i < amountValue + 2; i++)
             {
                 excelApp.Cells[i, 1] = ProductCategory.Text;
                 excelApp.Cells[i, 2] = StoreClass.Text;
@@ -216,7 +211,19 @@ namespace _91appExcelCreator
             _pictureTheme.Words = "測試專用";
             _pictureTheme.Height = 400;
             _pictureTheme.Width = 400;
+            _pictureTheme.FontCounter = new Font("微軟正黑體", 48);
 
+            CreateExampleImg();
+        }
+
+        private void CreateExampleImg()
+        {
+            var exampleImage = new Bitmap(_pictureTheme.Width, _pictureTheme.Height, PixelFormat.Format32bppArgb);
+            var g = Graphics.FromImage(exampleImage);
+            g.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
+                new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
+            CreateImg(g, 0);
+            example.Image = exampleImage;
         }
 
         private void Form1_Activated(object sender, EventArgs e)
@@ -228,25 +235,17 @@ namespace _91appExcelCreator
         {
             var newBitmap = new Bitmap(_pictureTheme.Width, _pictureTheme.Height, PixelFormat.Format32bppArgb);
             var g = Graphics.FromImage(newBitmap);
+            g.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
+                new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
             try
             {
-                var fontCounter = new Font("微軟正黑體", 48);
-                g.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
-                    new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
                 checkAndCreateFolder();
                 try
                 {
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
-                        int stringWidth = (int)g.MeasureString("測試專用" + i, fontCounter).Width / 2;
-                        var stringHeight = (int)g.MeasureString("測試專用" + i, fontCounter).Height / 2;
-                        g.Clear(_pictureTheme.BackgroundColor);
-                        var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
-                        var middleHeight = (_pictureTheme.Width / 2) - stringHeight;
-                        Drawing(g, "測試專用" + i, fontCounter, Color.DarkMagenta, middleWidth, middleHeight - 150);
-                        Drawing(g, "專用" + i + "測試", fontCounter, Color.Yellow, middleWidth, middleHeight);
-                        Drawing(g, i + "專用測試", fontCounter, Color.SeaGreen, middleWidth, middleHeight + 150);
-                        newBitmap.Save(@"D:\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
+                        CreateImg(g, i);
+                        newBitmap.Save(@"C:\Users\" + Environment.UserName + @"\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     MessageBox.Show(@"圖片建立完成");
                 }
@@ -255,13 +254,11 @@ namespace _91appExcelCreator
                     MessageBox.Show(exception.ToString());
                     throw;
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-
             finally
             {
                 g?.Dispose();
@@ -269,23 +266,42 @@ namespace _91appExcelCreator
             }
         }
 
+        private void CreateImg(Graphics g, int i)
+        {
+            var stringWidth = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Width / 2;
+            var stringHeight = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Height / 2;
+            g.Clear(_pictureTheme.BackgroundColor);
+            var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
+            var middleHeight = (_pictureTheme.Height / 2) - stringHeight;
+            Drawing(g, pictureWords.Text.Insert(pictureWords.TextLength, i.ToString()), _pictureTheme.FontCounter, Color.DarkMagenta, middleWidth, middleHeight - 150);
+            Drawing(g, pictureWords.Text.Insert(pictureWords.TextLength / 2, i.ToString()), _pictureTheme.FontCounter, Color.Yellow, middleWidth, middleHeight);
+            Drawing(g, pictureWords.Text.Insert(0, i.ToString()), _pictureTheme.FontCounter, Color.SeaGreen, middleWidth, middleHeight + 150);
+        }
+
         private static void Drawing(Graphics g, string drawString, Font font, Color color, int positionX, int positionY)
         {
             g.DrawString(drawString, font, new SolidBrush(color), positionX, positionY);
         }
 
-        private void checkAndCreateFolder()
-        {
-            var folderName = @"D:\Test\";
-            var pathString = System.IO.Path.Combine(folderName);
-            System.IO.Directory.CreateDirectory(pathString);
-        }
         private void PickColor_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 _pictureTheme.BackgroundColor = colorDialog1.Color;
+                CreateExampleImg();
             }
+        }
+
+        private void checkAndCreateFolder()
+        {
+            var folderName = @"C:\Users\" + Environment.UserName + @"\Documents\Test\";
+            var pathString = System.IO.Path.Combine(folderName);
+            System.IO.Directory.CreateDirectory(pathString);
+        }
+
+        private void pictureWords_TextChanged(object sender, EventArgs e)
+        {
+            CreateExampleImg();
         }
     }
 }

@@ -98,6 +98,10 @@
             this.CreateImgBtn = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PickColor = new System.Windows.Forms.Button();
+            this.example = new System.Windows.Forms.PictureBox();
+            this.pictureWords = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -441,8 +445,6 @@
             this.StoreClass.Size = new System.Drawing.Size(176, 25);
             this.StoreClass.TabIndex = 32;
             this.StoreClass.Text = "人氣商品推薦";
-            this.StoreClass.Enter += new System.EventHandler(this.StoreClass_Enter);
-            this.StoreClass.Leave += new System.EventHandler(this.StoreClass_Leave);
             // 
             // ProductName
             // 
@@ -644,7 +646,7 @@
             this.StoreName.Name = "StoreName";
             this.StoreName.Size = new System.Drawing.Size(176, 25);
             this.StoreName.TabIndex = 54;
-            this.StoreName.Text = "FB SHOP測試商店_1";
+            this.StoreName.Text = "FBshop測試商店01";
             // 
             // SEOTitle
             // 
@@ -716,7 +718,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(541, 712);
+            this.button1.Location = new System.Drawing.Point(594, 747);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 51);
             this.button1.TabIndex = 63;
@@ -727,7 +729,7 @@
             // amountOfData
             // 
             this.amountOfData.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.amountOfData.Location = new System.Drawing.Point(359, 726);
+            this.amountOfData.Location = new System.Drawing.Point(412, 759);
             this.amountOfData.Name = "amountOfData";
             this.amountOfData.Size = new System.Drawing.Size(176, 39);
             this.amountOfData.TabIndex = 64;
@@ -737,7 +739,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(355, 702);
+            this.label32.Location = new System.Drawing.Point(408, 736);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 21);
             this.label32.TabIndex = 65;
@@ -745,7 +747,7 @@
             // 
             // CreateImgBtn
             // 
-            this.CreateImgBtn.Location = new System.Drawing.Point(541, 769);
+            this.CreateImgBtn.Location = new System.Drawing.Point(594, 804);
             this.CreateImgBtn.Name = "CreateImgBtn";
             this.CreateImgBtn.Size = new System.Drawing.Size(176, 51);
             this.CreateImgBtn.TabIndex = 63;
@@ -755,19 +757,52 @@
             // 
             // PickColor
             // 
-            this.PickColor.Location = new System.Drawing.Point(359, 769);
+            this.PickColor.Location = new System.Drawing.Point(412, 804);
             this.PickColor.Name = "PickColor";
             this.PickColor.Size = new System.Drawing.Size(176, 51);
             this.PickColor.TabIndex = 66;
-            this.PickColor.Text = "PickBackgroundColor";
+            this.PickColor.Text = "選擇圖片背景顏色";
             this.PickColor.UseVisualStyleBackColor = true;
             this.PickColor.Click += new System.EventHandler(this.PickColor_Click);
+            // 
+            // example
+            // 
+            this.example.Location = new System.Drawing.Point(176, 705);
+            this.example.Name = "example";
+            this.example.Size = new System.Drawing.Size(150, 150);
+            this.example.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.example.TabIndex = 67;
+            this.example.TabStop = false;
+            // 
+            // pictureWords
+            // 
+            this.pictureWords.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.pictureWords.Location = new System.Drawing.Point(29, 816);
+            this.pictureWords.MaxLength = 4;
+            this.pictureWords.Name = "pictureWords";
+            this.pictureWords.Size = new System.Drawing.Size(127, 39);
+            this.pictureWords.TabIndex = 68;
+            this.pictureWords.Text = "測試專用";
+            this.pictureWords.TextChanged += new System.EventHandler(this.pictureWords_TextChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label33.Location = new System.Drawing.Point(25, 792);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(78, 21);
+            this.label33.TabIndex = 69;
+            this.label33.Text = "圖片文字:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 839);
+            this.ClientSize = new System.Drawing.Size(827, 887);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.pictureWords);
+            this.Controls.Add(this.example);
             this.Controls.Add(this.PickColor);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.amountOfData);
@@ -841,6 +876,7 @@
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.example)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -881,7 +917,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox ProductCategory;
         private System.Windows.Forms.TextBox StoreClass;
-        private System.Windows.Forms.TextBox ProductName;
+        private new System.Windows.Forms.TextBox ProductName;
         private System.Windows.Forms.TextBox Quantity;
         private System.Windows.Forms.TextBox SugestPrice;
         private System.Windows.Forms.TextBox Price;
@@ -918,6 +954,9 @@
         private System.Windows.Forms.Button CreateImgBtn;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button PickColor;
+        private System.Windows.Forms.PictureBox example;
+        private System.Windows.Forms.TextBox pictureWords;
+        private System.Windows.Forms.Label label33;
     }
 }
 
