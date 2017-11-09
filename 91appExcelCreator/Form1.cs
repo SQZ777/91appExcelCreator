@@ -273,7 +273,7 @@ namespace _91appExcelCreator
             var stringHeight = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Height / 2;
             if (randomColor.Checked)
             {
-                _pictureTheme.BackgroundColor = GetRandomColor();
+                _pictureTheme.BackgroundColor = _pictureTheme.GetRandomColor();
             }
             g.Clear(_pictureTheme.BackgroundColor);
             var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
@@ -316,15 +316,6 @@ namespace _91appExcelCreator
             }
         }
 
-        private static Color GetRandomColor()
-        {
-            var random = new Random();
-            var r = random.Next(0, 255);
-            Thread.Sleep(5);
-            var g = random.Next(0, 255);
-            Thread.Sleep(5);
-            var b = random.Next(0, 255);
-            return Color.FromArgb(r, g, b);
-        }
+        
     }
 }
