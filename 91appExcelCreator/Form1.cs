@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -270,6 +271,10 @@ namespace _91appExcelCreator
         {
             var stringWidth = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Width / 2;
             var stringHeight = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Height / 2;
+            if (randomColor.Checked)
+            {
+                _pictureTheme.BackgroundColor = GetRandomColor();
+            }
             g.Clear(_pictureTheme.BackgroundColor);
             var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
             var middleHeight = (_pictureTheme.Height / 2) - stringHeight;
@@ -302,6 +307,24 @@ namespace _91appExcelCreator
         private void pictureWords_TextChanged(object sender, EventArgs e)
         {
             CreateExampleImg();
+        }
+
+        private void randomColor_CheckedChanged(object sender, EventArgs e)
+        {
+            {
+                
+            }
+        }
+
+        private static Color GetRandomColor()
+        {
+            var random = new Random();
+            var r = random.Next(0, 255);
+            Thread.Sleep(5);
+            var g = random.Next(0, 255);
+            Thread.Sleep(5);
+            var b = random.Next(0, 255);
+            return Color.FromArgb(r, g, b);
         }
     }
 }

@@ -101,6 +101,7 @@
             this.example = new System.Windows.Forms.PictureBox();
             this.pictureWords = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
+            this.randomColor = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
             this.SuspendLayout();
             // 
@@ -799,11 +800,24 @@
             this.label33.TabIndex = 69;
             this.label33.Text = "圖片文字:";
             // 
+            // randomColor
+            // 
+            this.randomColor.AutoSize = true;
+            this.randomColor.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.randomColor.Location = new System.Drawing.Point(412, 859);
+            this.randomColor.Name = "randomColor";
+            this.randomColor.Size = new System.Drawing.Size(124, 24);
+            this.randomColor.TabIndex = 70;
+            this.randomColor.Text = "圖片隨機顏色";
+            this.randomColor.UseVisualStyleBackColor = true;
+            this.randomColor.CheckedChanged += new System.EventHandler(this.randomColor_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 887);
+            this.Controls.Add(this.randomColor);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.pictureWords);
             this.Controls.Add(this.example);
@@ -961,6 +975,7 @@
         private System.Windows.Forms.PictureBox example;
         private System.Windows.Forms.TextBox pictureWords;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.CheckBox randomColor;
     }
 }
 
