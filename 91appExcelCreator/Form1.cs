@@ -209,8 +209,8 @@ namespace _91appExcelCreator
         {
             _pictureTheme.BackgroundColor = Color.Black;
             _pictureTheme.Words = "測試專用";
-            _pictureTheme.Height = 400;
             _pictureTheme.Width = 400;
+            _pictureTheme.Height = 400;
             _pictureTheme.FontCounter = new Font("微軟正黑體", 48);
 
             CreateExampleImg();

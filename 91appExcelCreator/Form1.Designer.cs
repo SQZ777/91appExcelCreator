@@ -433,7 +433,7 @@
             this.ProductCategory.Name = "ProductCategory";
             this.ProductCategory.Size = new System.Drawing.Size(176, 25);
             this.ProductCategory.TabIndex = 31;
-            this.ProductCategory.Text = "ATM付款";
+            this.ProductCategory.Text = "圖書、文具、影音、樂器 >二手書 > 文學";
             this.ProductCategory.Enter += new System.EventHandler(this.ProductCategory_Enter);
             this.ProductCategory.Leave += new System.EventHandler(this.ProductCategory_Leave);
             // 
@@ -873,7 +873,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ExcelCreater";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.example)).EndInit();
