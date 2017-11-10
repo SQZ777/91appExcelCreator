@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Threading;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -15,17 +14,6 @@ namespace _91appExcelCreator
         {
             InitializeComponent();
         }
-
-        private void ProductCategory_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void ProductCategory_Leave(object sender, EventArgs e)
-        {
-           
-        }
-        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -82,7 +70,7 @@ namespace _91appExcelCreator
             return wSheet;
         }
 
-        private static void AddWorkSheet(Excel._Workbook wBook, Excel.Application excelApp, string sheetName, bool needCreate)
+        private static void AddWorkSheet(Excel._Workbook wBook, Excel._Application excelApp, string sheetName, bool needCreate)
         {
             excelApp.Worksheets.Add();
             var wSheet = (Excel._Worksheet)wBook.Worksheets[1];
@@ -108,7 +96,7 @@ namespace _91appExcelCreator
         {
             for (var i = 2; i < amountValue + 2; i++)
             {
-                excelApp.Cells[i, 1] = ProductCategory.Text;
+                excelApp.Cells[i, 1] = cbProductCategory.Text;
                 excelApp.Cells[i, 2] = StoreClass.Text;
                 excelApp.Cells[i, 3] = ProductName.Text + (i - 1);
                 excelApp.Cells[i, 4] = Quantity.Text;
@@ -133,7 +121,7 @@ namespace _91appExcelCreator
                 excelApp.Cells[i, 32] = SalePoint.Text;
                 excelApp.Cells[i, 33] = ProductFeature.Text;
                 excelApp.Cells[i, 34] = Detail.Text;
-                excelApp.Cells[i, 35] = StoreName.Text;
+                excelApp.Cells[i, 35] = cbStoreName.Text;
                 excelApp.Cells[i, 36] = SEOTitle.Text;
                 excelApp.Cells[i, 37] = SEOKeyword.Text;
                 excelApp.Cells[i, 38] = SEODescription.Text;
@@ -197,7 +185,6 @@ namespace _91appExcelCreator
             _pictureTheme.Width = 400;
             _pictureTheme.Height = 400;
             _pictureTheme.FontCounter = new Font("微軟正黑體", 48);
-
             CreateExampleImg();
         }
 
@@ -292,14 +279,5 @@ namespace _91appExcelCreator
         {
             CreateExampleImg();
         }
-
-        private void randomColor_CheckedChanged(object sender, EventArgs e)
-        {
-            {
-                
-            }
-        }
-
-        
     }
 }

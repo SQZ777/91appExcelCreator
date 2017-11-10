@@ -59,7 +59,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.ProductCategory = new System.Windows.Forms.TextBox();
             this.StoreClass = new System.Windows.Forms.TextBox();
             this.ProductName = new System.Windows.Forms.TextBox();
             this.Quantity = new System.Windows.Forms.TextBox();
@@ -83,7 +82,6 @@
             this.SalePoint = new System.Windows.Forms.TextBox();
             this.ProductFeature = new System.Windows.Forms.TextBox();
             this.Detail = new System.Windows.Forms.TextBox();
-            this.StoreName = new System.Windows.Forms.TextBox();
             this.SEOTitle = new System.Windows.Forms.TextBox();
             this.SEOKeyword = new System.Windows.Forms.TextBox();
             this.SEODescription = new System.Windows.Forms.TextBox();
@@ -102,6 +100,8 @@
             this.pictureWords = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.randomColor = new System.Windows.Forms.CheckBox();
+            this.cbProductCategory = new System.Windows.Forms.ComboBox();
+            this.cbStoreName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,6 +147,7 @@
             this.label4.Size = new System.Drawing.Size(53, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "數量:";
+            this.label4.Visible = false;
             // 
             // label5
             // 
@@ -157,6 +158,7 @@
             this.label5.Size = new System.Drawing.Size(91, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "建議售價:";
+            this.label5.Visible = false;
             // 
             // label6
             // 
@@ -167,6 +169,7 @@
             this.label6.Size = new System.Drawing.Size(53, 24);
             this.label6.TabIndex = 5;
             this.label6.Text = "售價:";
+            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -177,6 +180,7 @@
             this.label7.Size = new System.Drawing.Size(53, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "成本:";
+            this.label7.Visible = false;
             // 
             // label8
             // 
@@ -187,6 +191,7 @@
             this.label8.Size = new System.Drawing.Size(148, 24);
             this.label8.TabIndex = 7;
             this.label8.Text = "一次最高購買量:";
+            this.label8.Visible = false;
             // 
             // label9
             // 
@@ -197,6 +202,7 @@
             this.label9.Size = new System.Drawing.Size(129, 24);
             this.label9.TabIndex = 8;
             this.label9.Text = "銷售開始日期:";
+            this.label9.Visible = false;
             // 
             // label10
             // 
@@ -207,6 +213,7 @@
             this.label10.Size = new System.Drawing.Size(129, 24);
             this.label10.TabIndex = 9;
             this.label10.Text = "銷售結束日期:";
+            this.label10.Visible = false;
             // 
             // label11
             // 
@@ -217,6 +224,7 @@
             this.label11.Size = new System.Drawing.Size(53, 24);
             this.label11.TabIndex = 10;
             this.label11.Text = "交期:";
+            this.label11.Visible = false;
             // 
             // label12
             // 
@@ -227,6 +235,7 @@
             this.label12.Size = new System.Drawing.Size(129, 24);
             this.label12.TabIndex = 11;
             this.label12.Text = "預定出貨日期:";
+            this.label12.Visible = false;
             // 
             // label13
             // 
@@ -237,6 +246,7 @@
             this.label13.Size = new System.Drawing.Size(186, 24);
             this.label13.TabIndex = 12;
             this.label13.Text = "付款完成後幾天出貨:";
+            this.label13.Visible = false;
             // 
             // label14
             // 
@@ -247,6 +257,7 @@
             this.label14.Size = new System.Drawing.Size(91, 24);
             this.label14.TabIndex = 13;
             this.label14.Text = "配送方式:";
+            this.label14.Visible = false;
             // 
             // label15
             // 
@@ -257,12 +268,13 @@
             this.label15.Size = new System.Drawing.Size(91, 24);
             this.label15.TabIndex = 14;
             this.label15.Text = "付款方式:";
+            this.label15.Visible = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(480, 17);
+            this.label16.Location = new System.Drawing.Point(480, 70);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(110, 24);
             this.label16.TabIndex = 15;
@@ -273,7 +285,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(480, 60);
+            this.label17.Location = new System.Drawing.Point(480, 113);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(110, 24);
             this.label17.TabIndex = 16;
@@ -283,82 +295,89 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(499, 103);
+            this.label18.Location = new System.Drawing.Point(499, 156);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(91, 24);
             this.label18.TabIndex = 17;
             this.label18.Text = "商品料號:";
+            this.label18.Visible = false;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(461, 146);
+            this.label19.Location = new System.Drawing.Point(461, 199);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(129, 24);
             this.label19.TabIndex = 18;
             this.label19.Text = "商品選項圖檔:";
+            this.label19.Visible = false;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(499, 189);
+            this.label20.Location = new System.Drawing.Point(499, 242);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(91, 24);
             this.label20.TabIndex = 19;
             this.label20.Text = "商品規格:";
+            this.label20.Visible = false;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(480, 232);
+            this.label21.Location = new System.Drawing.Point(480, 285);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(110, 24);
             this.label21.TabIndex = 20;
             this.label21.Text = "商品圖檔一:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label21.Visible = false;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label22.Location = new System.Drawing.Point(499, 275);
+            this.label22.Location = new System.Drawing.Point(499, 328);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(91, 24);
             this.label22.TabIndex = 21;
             this.label22.Text = "銷售重點:";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label22.Visible = false;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label23.Location = new System.Drawing.Point(499, 318);
+            this.label23.Location = new System.Drawing.Point(499, 371);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(91, 24);
             this.label23.TabIndex = 22;
             this.label23.Text = "商品特色:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label23.Visible = false;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
-            this.label24.Location = new System.Drawing.Point(499, 361);
+            this.label24.Location = new System.Drawing.Point(499, 414);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(91, 24);
             this.label24.TabIndex = 23;
             this.label24.Text = "詳細說明:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label24.Visible = false;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("微軟正黑體", 14F, System.Drawing.FontStyle.Bold);
             this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(499, 404);
+            this.label25.Location = new System.Drawing.Point(499, 21);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(91, 24);
             this.label25.TabIndex = 24;
@@ -375,6 +394,7 @@
             this.label26.TabIndex = 25;
             this.label26.Text = "SEOTitle:";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label26.Visible = false;
             // 
             // label27
             // 
@@ -386,6 +406,7 @@
             this.label27.TabIndex = 26;
             this.label27.Text = "SEOKeyword:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label27.Visible = false;
             // 
             // label28
             // 
@@ -397,6 +418,7 @@
             this.label28.TabIndex = 27;
             this.label28.Text = "SEODescription:";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label28.Visible = false;
             // 
             // label29
             // 
@@ -408,6 +430,7 @@
             this.label29.TabIndex = 28;
             this.label29.Text = "溫層類別:";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label29.Visible = false;
             // 
             // label30
             // 
@@ -419,6 +442,7 @@
             this.label30.TabIndex = 29;
             this.label30.Text = "商品材積(長x寬x高):";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label30.Visible = false;
             // 
             // label31
             // 
@@ -430,15 +454,7 @@
             this.label31.TabIndex = 30;
             this.label31.Text = "商品重量(克):";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ProductCategory
-            // 
-            this.ProductCategory.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductCategory.Location = new System.Drawing.Point(226, 16);
-            this.ProductCategory.Name = "ProductCategory";
-            this.ProductCategory.Size = new System.Drawing.Size(176, 25);
-            this.ProductCategory.TabIndex = 31;
-            this.ProductCategory.Text = "圖書、文具、影音、樂器 >二手書 > 文學";
+            this.label31.Visible = false;
             // 
             // StoreClass
             // 
@@ -466,6 +482,7 @@
             this.Quantity.Size = new System.Drawing.Size(176, 25);
             this.Quantity.TabIndex = 34;
             this.Quantity.Text = "10";
+            this.Quantity.Visible = false;
             // 
             // SugestPrice
             // 
@@ -475,6 +492,7 @@
             this.SugestPrice.Size = new System.Drawing.Size(176, 25);
             this.SugestPrice.TabIndex = 35;
             this.SugestPrice.Text = "10";
+            this.SugestPrice.Visible = false;
             // 
             // Price
             // 
@@ -484,6 +502,7 @@
             this.Price.Size = new System.Drawing.Size(176, 25);
             this.Price.TabIndex = 36;
             this.Price.Text = "10";
+            this.Price.Visible = false;
             // 
             // Cost
             // 
@@ -493,6 +512,7 @@
             this.Cost.Size = new System.Drawing.Size(176, 25);
             this.Cost.TabIndex = 37;
             this.Cost.Text = "10";
+            this.Cost.Visible = false;
             // 
             // HighestBuyQuantity
             // 
@@ -502,6 +522,7 @@
             this.HighestBuyQuantity.Size = new System.Drawing.Size(176, 25);
             this.HighestBuyQuantity.TabIndex = 38;
             this.HighestBuyQuantity.Text = "2";
+            this.HighestBuyQuantity.Visible = false;
             // 
             // StartDateTime
             // 
@@ -511,6 +532,7 @@
             this.StartDateTime.Name = "StartDateTime";
             this.StartDateTime.Size = new System.Drawing.Size(176, 25);
             this.StartDateTime.TabIndex = 39;
+            this.StartDateTime.Visible = false;
             // 
             // EndDateTime
             // 
@@ -521,6 +543,7 @@
             this.EndDateTime.Size = new System.Drawing.Size(176, 25);
             this.EndDateTime.TabIndex = 39;
             this.EndDateTime.Value = new System.DateTime(2018, 10, 23, 0, 0, 0, 0);
+            this.EndDateTime.Visible = false;
             // 
             // Delivery
             // 
@@ -530,6 +553,7 @@
             this.Delivery.Size = new System.Drawing.Size(176, 25);
             this.Delivery.TabIndex = 40;
             this.Delivery.Text = "一般";
+            this.Delivery.Visible = false;
             // 
             // ExpectedShippingDay
             // 
@@ -538,6 +562,7 @@
             this.ExpectedShippingDay.Name = "ExpectedShippingDay";
             this.ExpectedShippingDay.Size = new System.Drawing.Size(176, 25);
             this.ExpectedShippingDay.TabIndex = 41;
+            this.ExpectedShippingDay.Visible = false;
             // 
             // AfterPayShippingDay
             // 
@@ -546,6 +571,7 @@
             this.AfterPayShippingDay.Name = "AfterPayShippingDay";
             this.AfterPayShippingDay.Size = new System.Drawing.Size(176, 25);
             this.AfterPayShippingDay.TabIndex = 42;
+            this.AfterPayShippingDay.Visible = false;
             // 
             // ShippingType
             // 
@@ -554,6 +580,7 @@
             this.ShippingType.Name = "ShippingType";
             this.ShippingType.Size = new System.Drawing.Size(176, 25);
             this.ShippingType.TabIndex = 43;
+            this.ShippingType.Visible = false;
             // 
             // PayType
             // 
@@ -562,11 +589,12 @@
             this.PayType.Name = "PayType";
             this.PayType.Size = new System.Drawing.Size(176, 25);
             this.PayType.TabIndex = 44;
+            this.PayType.Visible = false;
             // 
             // ProductOption1
             // 
             this.ProductOption1.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductOption1.Location = new System.Drawing.Point(596, 16);
+            this.ProductOption1.Location = new System.Drawing.Point(596, 69);
             this.ProductOption1.Name = "ProductOption1";
             this.ProductOption1.Size = new System.Drawing.Size(176, 25);
             this.ProductOption1.TabIndex = 45;
@@ -575,7 +603,7 @@
             // ProductOption2
             // 
             this.ProductOption2.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductOption2.Location = new System.Drawing.Point(596, 59);
+            this.ProductOption2.Location = new System.Drawing.Point(596, 112);
             this.ProductOption2.Name = "ProductOption2";
             this.ProductOption2.Size = new System.Drawing.Size(176, 25);
             this.ProductOption2.TabIndex = 46;
@@ -584,72 +612,70 @@
             // ProductNumber
             // 
             this.ProductNumber.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductNumber.Location = new System.Drawing.Point(596, 102);
+            this.ProductNumber.Location = new System.Drawing.Point(596, 155);
             this.ProductNumber.Name = "ProductNumber";
             this.ProductNumber.Size = new System.Drawing.Size(176, 25);
             this.ProductNumber.TabIndex = 47;
             this.ProductNumber.Text = "12345678";
+            this.ProductNumber.Visible = false;
             // 
             // ProductOptionImg
             // 
             this.ProductOptionImg.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductOptionImg.Location = new System.Drawing.Point(596, 145);
+            this.ProductOptionImg.Location = new System.Drawing.Point(596, 198);
             this.ProductOptionImg.Name = "ProductOptionImg";
             this.ProductOptionImg.Size = new System.Drawing.Size(176, 25);
             this.ProductOptionImg.TabIndex = 48;
+            this.ProductOptionImg.Visible = false;
             // 
             // ProductSpec
             // 
             this.ProductSpec.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductSpec.Location = new System.Drawing.Point(596, 188);
+            this.ProductSpec.Location = new System.Drawing.Point(596, 241);
             this.ProductSpec.Name = "ProductSpec";
             this.ProductSpec.Size = new System.Drawing.Size(176, 25);
             this.ProductSpec.TabIndex = 49;
+            this.ProductSpec.Visible = false;
             // 
             // ProductImg1
             // 
             this.ProductImg1.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductImg1.Location = new System.Drawing.Point(596, 231);
+            this.ProductImg1.Location = new System.Drawing.Point(596, 284);
             this.ProductImg1.Name = "ProductImg1";
             this.ProductImg1.Size = new System.Drawing.Size(176, 25);
             this.ProductImg1.TabIndex = 50;
             this.ProductImg1.Text = ".jpg";
+            this.ProductImg1.Visible = false;
             // 
             // SalePoint
             // 
             this.SalePoint.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.SalePoint.Location = new System.Drawing.Point(596, 274);
+            this.SalePoint.Location = new System.Drawing.Point(596, 327);
             this.SalePoint.Name = "SalePoint";
             this.SalePoint.Size = new System.Drawing.Size(176, 25);
             this.SalePoint.TabIndex = 51;
             this.SalePoint.Text = "測試";
+            this.SalePoint.Visible = false;
             // 
             // ProductFeature
             // 
             this.ProductFeature.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.ProductFeature.Location = new System.Drawing.Point(596, 317);
+            this.ProductFeature.Location = new System.Drawing.Point(596, 370);
             this.ProductFeature.Name = "ProductFeature";
             this.ProductFeature.Size = new System.Drawing.Size(176, 25);
             this.ProductFeature.TabIndex = 52;
             this.ProductFeature.Text = "空";
+            this.ProductFeature.Visible = false;
             // 
             // Detail
             // 
             this.Detail.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.Detail.Location = new System.Drawing.Point(596, 360);
+            this.Detail.Location = new System.Drawing.Point(596, 413);
             this.Detail.Name = "Detail";
             this.Detail.Size = new System.Drawing.Size(176, 25);
             this.Detail.TabIndex = 53;
             this.Detail.Text = "空";
-            // 
-            // StoreName
-            // 
-            this.StoreName.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.StoreName.Location = new System.Drawing.Point(596, 403);
-            this.StoreName.Name = "StoreName";
-            this.StoreName.Size = new System.Drawing.Size(176, 25);
-            this.StoreName.TabIndex = 54;
-            this.StoreName.Text = "FBshop測試商店01";
+            this.Detail.Visible = false;
             // 
             // SEOTitle
             // 
@@ -658,6 +684,7 @@
             this.SEOTitle.Name = "SEOTitle";
             this.SEOTitle.Size = new System.Drawing.Size(176, 25);
             this.SEOTitle.TabIndex = 55;
+            this.SEOTitle.Visible = false;
             // 
             // SEOKeyword
             // 
@@ -666,6 +693,7 @@
             this.SEOKeyword.Name = "SEOKeyword";
             this.SEOKeyword.Size = new System.Drawing.Size(176, 25);
             this.SEOKeyword.TabIndex = 56;
+            this.SEOKeyword.Visible = false;
             // 
             // SEODescription
             // 
@@ -674,6 +702,7 @@
             this.SEODescription.Name = "SEODescription";
             this.SEODescription.Size = new System.Drawing.Size(176, 25);
             this.SEODescription.TabIndex = 57;
+            this.SEODescription.Visible = false;
             // 
             // WarmLayerClass
             // 
@@ -682,6 +711,7 @@
             this.WarmLayerClass.Name = "WarmLayerClass";
             this.WarmLayerClass.Size = new System.Drawing.Size(176, 25);
             this.WarmLayerClass.TabIndex = 58;
+            this.WarmLayerClass.Visible = false;
             // 
             // Volume
             // 
@@ -690,6 +720,7 @@
             this.Volume.Name = "Volume";
             this.Volume.Size = new System.Drawing.Size(176, 25);
             this.Volume.TabIndex = 59;
+            this.Volume.Visible = false;
             // 
             // Weight
             // 
@@ -698,6 +729,7 @@
             this.Weight.Name = "Weight";
             this.Weight.Size = new System.Drawing.Size(176, 25);
             this.Weight.TabIndex = 60;
+            this.Weight.Visible = false;
             // 
             // ProductOption
             // 
@@ -707,6 +739,7 @@
             this.ProductOption.Size = new System.Drawing.Size(176, 25);
             this.ProductOption.TabIndex = 62;
             this.ProductOption.Text = "有";
+            this.ProductOption.Visible = false;
             // 
             // LbProductOption
             // 
@@ -718,10 +751,11 @@
             this.LbProductOption.TabIndex = 61;
             this.LbProductOption.Text = "商品選項:";
             this.LbProductOption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LbProductOption.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(594, 747);
+            this.button1.Location = new System.Drawing.Point(610, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 51);
             this.button1.TabIndex = 63;
@@ -732,7 +766,7 @@
             // amountOfData
             // 
             this.amountOfData.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.amountOfData.Location = new System.Drawing.Point(412, 759);
+            this.amountOfData.Location = new System.Drawing.Point(428, 210);
             this.amountOfData.Name = "amountOfData";
             this.amountOfData.Size = new System.Drawing.Size(176, 39);
             this.amountOfData.TabIndex = 64;
@@ -742,7 +776,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(408, 736);
+            this.label32.Location = new System.Drawing.Point(424, 187);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 21);
             this.label32.TabIndex = 65;
@@ -750,7 +784,7 @@
             // 
             // CreateImgBtn
             // 
-            this.CreateImgBtn.Location = new System.Drawing.Point(594, 804);
+            this.CreateImgBtn.Location = new System.Drawing.Point(610, 255);
             this.CreateImgBtn.Name = "CreateImgBtn";
             this.CreateImgBtn.Size = new System.Drawing.Size(176, 51);
             this.CreateImgBtn.TabIndex = 63;
@@ -760,7 +794,7 @@
             // 
             // PickColor
             // 
-            this.PickColor.Location = new System.Drawing.Point(412, 804);
+            this.PickColor.Location = new System.Drawing.Point(428, 255);
             this.PickColor.Name = "PickColor";
             this.PickColor.Size = new System.Drawing.Size(176, 51);
             this.PickColor.TabIndex = 66;
@@ -770,7 +804,7 @@
             // 
             // example
             // 
-            this.example.Location = new System.Drawing.Point(176, 705);
+            this.example.Location = new System.Drawing.Point(192, 156);
             this.example.Name = "example";
             this.example.Size = new System.Drawing.Size(150, 150);
             this.example.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -780,7 +814,7 @@
             // pictureWords
             // 
             this.pictureWords.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pictureWords.Location = new System.Drawing.Point(29, 816);
+            this.pictureWords.Location = new System.Drawing.Point(45, 267);
             this.pictureWords.MaxLength = 4;
             this.pictureWords.Name = "pictureWords";
             this.pictureWords.Size = new System.Drawing.Size(127, 39);
@@ -792,7 +826,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label33.Location = new System.Drawing.Point(25, 792);
+            this.label33.Location = new System.Drawing.Point(41, 243);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(78, 21);
             this.label33.TabIndex = 69;
@@ -802,19 +836,58 @@
             // 
             this.randomColor.AutoSize = true;
             this.randomColor.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.randomColor.Location = new System.Drawing.Point(412, 859);
+            this.randomColor.Location = new System.Drawing.Point(428, 310);
             this.randomColor.Name = "randomColor";
             this.randomColor.Size = new System.Drawing.Size(124, 24);
             this.randomColor.TabIndex = 70;
             this.randomColor.Text = "圖片隨機顏色";
             this.randomColor.UseVisualStyleBackColor = true;
-            this.randomColor.CheckedChanged += new System.EventHandler(this.randomColor_CheckedChanged);
+            // 
+            // cbProductCategory
+            // 
+            this.cbProductCategory.Font = new System.Drawing.Font("微軟正黑體", 10F);
+            this.cbProductCategory.FormattingEnabled = true;
+            this.cbProductCategory.Items.AddRange(new object[] {
+            "圖書、文具、影音、樂器 >二手書 > 文學",
+            "ATM付款"});
+            this.cbProductCategory.Location = new System.Drawing.Point(226, 20);
+            this.cbProductCategory.Name = "cbProductCategory";
+            this.cbProductCategory.Size = new System.Drawing.Size(176, 25);
+            this.cbProductCategory.TabIndex = 71;
+            this.cbProductCategory.Text = "圖書、文具、影音、樂器 >二手書 > 文學";
+            // 
+            // cbStoreName
+            // 
+            this.cbStoreName.Font = new System.Drawing.Font("微軟正黑體", 10F);
+            this.cbStoreName.FormattingEnabled = true;
+            this.cbStoreName.Items.AddRange(new object[] {
+            "FB Shop測試商店(請勿動資料)",
+            "Anyway熱情測試商店",
+            "活動頁公版示範店",
+            "Lori馨平店",
+            "FBshop測試商店01",
+            "FBshop測試商店02",
+            "FBshop測試商店03",
+            "FBshop測試商店04",
+            "FBshop測試商店05",
+            "FBshop測試商店06",
+            "FBshop測試商店07",
+            "FBshop測試商店08",
+            "FBshop測試商店09",
+            "FBshop測試商店10"});
+            this.cbStoreName.Location = new System.Drawing.Point(596, 24);
+            this.cbStoreName.Name = "cbStoreName";
+            this.cbStoreName.Size = new System.Drawing.Size(176, 25);
+            this.cbStoreName.TabIndex = 72;
+            this.cbStoreName.Text = "FB Shop測試商店(請勿動資料)";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 887);
+            this.ClientSize = new System.Drawing.Size(827, 355);
+            this.Controls.Add(this.cbStoreName);
+            this.Controls.Add(this.cbProductCategory);
             this.Controls.Add(this.randomColor);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.pictureWords);
@@ -832,7 +905,6 @@
             this.Controls.Add(this.SEODescription);
             this.Controls.Add(this.SEOKeyword);
             this.Controls.Add(this.SEOTitle);
-            this.Controls.Add(this.StoreName);
             this.Controls.Add(this.Detail);
             this.Controls.Add(this.ProductFeature);
             this.Controls.Add(this.SalePoint);
@@ -856,7 +928,6 @@
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.ProductName);
             this.Controls.Add(this.StoreClass);
-            this.Controls.Add(this.ProductCategory);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);
@@ -889,6 +960,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "ExcelCreater";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -931,7 +1003,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox ProductCategory;
         private System.Windows.Forms.TextBox StoreClass;
         private new System.Windows.Forms.TextBox ProductName;
         private System.Windows.Forms.TextBox Quantity;
@@ -955,7 +1026,6 @@
         private System.Windows.Forms.TextBox SalePoint;
         private System.Windows.Forms.TextBox ProductFeature;
         private System.Windows.Forms.TextBox Detail;
-        private System.Windows.Forms.TextBox StoreName;
         private System.Windows.Forms.TextBox SEOTitle;
         private System.Windows.Forms.TextBox SEOKeyword;
         private System.Windows.Forms.TextBox SEODescription;
@@ -974,6 +1044,8 @@
         private System.Windows.Forms.TextBox pictureWords;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.CheckBox randomColor;
+        private System.Windows.Forms.ComboBox cbProductCategory;
+        private System.Windows.Forms.ComboBox cbStoreName;
     }
 }
 
