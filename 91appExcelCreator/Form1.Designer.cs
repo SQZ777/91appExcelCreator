@@ -439,8 +439,6 @@
             this.ProductCategory.Size = new System.Drawing.Size(176, 25);
             this.ProductCategory.TabIndex = 31;
             this.ProductCategory.Text = "圖書、文具、影音、樂器 >二手書 > 文學";
-            this.ProductCategory.Enter += new System.EventHandler(this.ProductCategory_Enter);
-            this.ProductCategory.Leave += new System.EventHandler(this.ProductCategory_Leave);
             // 
             // StoreClass
             // 
