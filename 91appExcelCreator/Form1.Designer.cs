@@ -755,7 +755,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(610, 198);
+            this.button1.Location = new System.Drawing.Point(620, 190);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 51);
             this.button1.TabIndex = 63;
@@ -766,7 +766,7 @@
             // amountOfData
             // 
             this.amountOfData.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.amountOfData.Location = new System.Drawing.Point(428, 210);
+            this.amountOfData.Location = new System.Drawing.Point(438, 202);
             this.amountOfData.Name = "amountOfData";
             this.amountOfData.Size = new System.Drawing.Size(176, 39);
             this.amountOfData.TabIndex = 64;
@@ -776,7 +776,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(424, 187);
+            this.label32.Location = new System.Drawing.Point(434, 179);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 21);
             this.label32.TabIndex = 65;
@@ -784,7 +784,7 @@
             // 
             // CreateImgBtn
             // 
-            this.CreateImgBtn.Location = new System.Drawing.Point(610, 255);
+            this.CreateImgBtn.Location = new System.Drawing.Point(620, 247);
             this.CreateImgBtn.Name = "CreateImgBtn";
             this.CreateImgBtn.Size = new System.Drawing.Size(176, 51);
             this.CreateImgBtn.TabIndex = 63;
@@ -794,7 +794,7 @@
             // 
             // PickColor
             // 
-            this.PickColor.Location = new System.Drawing.Point(428, 255);
+            this.PickColor.Location = new System.Drawing.Point(438, 247);
             this.PickColor.Name = "PickColor";
             this.PickColor.Size = new System.Drawing.Size(176, 51);
             this.PickColor.TabIndex = 66;
@@ -804,7 +804,7 @@
             // 
             // example
             // 
-            this.example.Location = new System.Drawing.Point(192, 156);
+            this.example.Location = new System.Drawing.Point(202, 148);
             this.example.Name = "example";
             this.example.Size = new System.Drawing.Size(150, 150);
             this.example.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -814,7 +814,7 @@
             // pictureWords
             // 
             this.pictureWords.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pictureWords.Location = new System.Drawing.Point(45, 267);
+            this.pictureWords.Location = new System.Drawing.Point(55, 259);
             this.pictureWords.MaxLength = 4;
             this.pictureWords.Name = "pictureWords";
             this.pictureWords.Size = new System.Drawing.Size(127, 39);
@@ -826,7 +826,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label33.Location = new System.Drawing.Point(41, 243);
+            this.label33.Location = new System.Drawing.Point(51, 235);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(78, 21);
             this.label33.TabIndex = 69;
@@ -836,7 +836,7 @@
             // 
             this.randomColor.AutoSize = true;
             this.randomColor.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.randomColor.Location = new System.Drawing.Point(428, 310);
+            this.randomColor.Location = new System.Drawing.Point(438, 302);
             this.randomColor.Name = "randomColor";
             this.randomColor.Size = new System.Drawing.Size(124, 24);
             this.randomColor.TabIndex = 70;
@@ -885,7 +885,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 355);
+            this.ClientSize = new System.Drawing.Size(827, 335);
             this.Controls.Add(this.cbStoreName);
             this.Controls.Add(this.cbProductCategory);
             this.Controls.Add(this.randomColor);

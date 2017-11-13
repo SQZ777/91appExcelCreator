@@ -3,7 +3,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-
+using System.IO;
+using Ionic.Zlib;
 namespace _91appExcelCreator
 {
     public partial class Form1 : Form
@@ -219,6 +220,7 @@ namespace _91appExcelCreator
                         CreateImg(g, i);
                         newBitmap.Save(@"C:\Users\" + Environment.UserName + @"\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
+                    _pictureTheme.CreateZip(int.Parse(amountOfData.Text), @"C:\Users\" + Environment.UserName + @"\Documents\Test\");
                     MessageBox.Show(@"圖片建立完成");
                 }
                 catch (Exception exception)
@@ -271,13 +273,16 @@ namespace _91appExcelCreator
         private void checkAndCreateFolder()
         {
             var folderName = @"C:\Users\" + Environment.UserName + @"\Documents\Test\";
-            var pathString = System.IO.Path.Combine(folderName);
-            System.IO.Directory.CreateDirectory(pathString);
+            var pathString = Path.Combine(folderName);
+            Directory.CreateDirectory(pathString);
         }
 
         private void pictureWords_TextChanged(object sender, EventArgs e)
         {
             CreateExampleImg();
         }
+
+        
+
     }
 }

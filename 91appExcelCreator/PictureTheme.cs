@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
+using Ionic.Zip;
+using Ionic.Zlib;
 
 namespace _91appExcelCreator
 {
+
     class PictureTheme
     {
         public Color BackgroundColor { get; set; }
@@ -25,5 +26,18 @@ namespace _91appExcelCreator
             var b = random.Next(0, 255);
             return Color.FromArgb(r, g, b);
         }
+
+        public void CreateZip(int count,string locate)
+        {
+            using (var zip = new ZipFile("Test"))
+            {
+                for (var i = 1; i <= count; i++)
+                {
+                    zip.AddFile(locate + i + ".jpg",string.Empty);
+                }
+                zip.Save(locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + @"_test.zip");
+            }
+        }
+
     }
 }
