@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;
-using Ionic.Zlib;
 namespace _91appExcelCreator
 {
     public partial class Form1 : Form
@@ -93,92 +92,6 @@ namespace _91appExcelCreator
             wRange.Columns.AutoFit();
         }
 
-        private void DoExcel(Excel._Application excelApp, int amountValue)
-        {
-            for (var i = 2; i < amountValue + 2; i++)
-            {
-                excelApp.Cells[i, 1] = cbProductCategory.Text;
-                excelApp.Cells[i, 2] = StoreClass.Text;
-                excelApp.Cells[i, 3] = ProductName.Text + (i - 1);
-                excelApp.Cells[i, 4] = Quantity.Text;
-                excelApp.Cells[i, 5] = SugestPrice.Text;
-                excelApp.Cells[i, 6] = Price.Text;
-                excelApp.Cells[i, 7] = Cost.Text;
-                excelApp.Cells[i, 8] = HighestBuyQuantity.Text;
-                excelApp.Cells[i, 9] = StartDateTime.Text;
-                excelApp.Cells[i, 10] = EndDateTime.Text;
-                excelApp.Cells[i, 11] = Delivery.Text;
-                excelApp.Cells[i, 12] = ExpectedShippingDay.Text;
-                excelApp.Cells[i, 13] = AfterPayShippingDay.Text;
-                excelApp.Cells[i, 14] = ShippingType.Text;
-                excelApp.Cells[i, 15] = PayType.Text;
-                excelApp.Cells[i, 16] = ProductOption.Text;
-                excelApp.Cells[i, 17] = ProductOption1.Text;
-                excelApp.Cells[i, 18] = ProductOption2.Text;
-                excelApp.Cells[i, 19] = ProductNumber.Text;
-                excelApp.Cells[i, 20] = ProductOptionImg.Text;
-                excelApp.Cells[i, 21] = ProductSpec.Text;
-                excelApp.Cells[i, 22] = (i - 1) + ProductImg1.Text;
-                excelApp.Cells[i, 32] = SalePoint.Text;
-                excelApp.Cells[i, 33] = ProductFeature.Text;
-                excelApp.Cells[i, 34] = Detail.Text;
-                excelApp.Cells[i, 35] = cbStoreName.Text;
-                excelApp.Cells[i, 36] = SEOTitle.Text;
-                excelApp.Cells[i, 37] = SEOKeyword.Text;
-                excelApp.Cells[i, 38] = SEODescription.Text;
-                excelApp.Cells[i, 39] = WarmLayerClass.Text;
-                excelApp.Cells[i, 40] = Volume.Text;
-                excelApp.Cells[i, 41] = Weight.Text;
-            }
-        }
-
-        private static void InitialExcelTitles(Excel._Application excelApp)
-        {
-            excelApp.Cells[1, 1] = "商品品類";
-            excelApp.Cells[1, 2] = "商店類別";
-            excelApp.Cells[1, 3] = "商品名稱";
-            excelApp.Cells[1, 4] = "數量";
-            excelApp.Cells[1, 5] = "建議售價";
-            excelApp.Cells[1, 6] = "售價";
-            excelApp.Cells[1, 7] = "成本";
-            excelApp.Cells[1, 8] = "一次最高購買量";
-            excelApp.Cells[1, 9] = "銷售開始日期";
-            excelApp.Cells[1, 10] = "銷售結束日期";
-            excelApp.Cells[1, 11] = "交期";
-            excelApp.Cells[1, 12] = "預定出貨日期";
-            excelApp.Cells[1, 13] = "付款完成後幾天出貨";
-            excelApp.Cells[1, 14] = "配送方式";
-            excelApp.Cells[1, 15] = "付款方式";
-            excelApp.Cells[1, 16] = "商品選項";
-            excelApp.Cells[1, 17] = "商品選項一";
-            excelApp.Cells[1, 18] = "商品選項二";
-            excelApp.Cells[1, 19] = "商品料號";
-            excelApp.Cells[1, 20] = "商品選項圖檔";
-            excelApp.Cells[1, 21] = "商品規格";
-
-            excelApp.Cells[1, 22] = "商品圖檔一";
-            excelApp.Cells[1, 23] = "商品圖檔二";
-            excelApp.Cells[1, 24] = "商品圖檔三";
-            excelApp.Cells[1, 25] = "商品圖檔四";
-            excelApp.Cells[1, 26] = "商品圖檔五";
-            excelApp.Cells[1, 27] = "商品圖檔六";
-            excelApp.Cells[1, 28] = "商品圖檔七";
-            excelApp.Cells[1, 29] = "商品圖檔八";
-            excelApp.Cells[1, 30] = "商品圖檔九";
-            excelApp.Cells[1, 31] = "商品圖檔十";
-
-            excelApp.Cells[1, 32] = "銷售重點";
-            excelApp.Cells[1, 33] = "商品特色";
-            excelApp.Cells[1, 34] = "詳細說明";
-            excelApp.Cells[1, 35] = "商店名稱";
-            excelApp.Cells[1, 36] = "SEOTitle";
-            excelApp.Cells[1, 37] = "SEOKeyword";
-            excelApp.Cells[1, 38] = "SEODescription";
-            excelApp.Cells[1, 39] = "溫層類別";
-            excelApp.Cells[1, 40] = "商品材積(長x寬x高)";
-            excelApp.Cells[1, 41] = "商品重量";
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             _pictureTheme.BackgroundColor = Color.Black;
@@ -186,6 +99,8 @@ namespace _91appExcelCreator
             _pictureTheme.Width = 400;
             _pictureTheme.Height = 400;
             _pictureTheme.FontCounter = new Font("微軟正黑體", 48);
+            _pictureTheme.locate = @"C:\Users\" + Environment.UserName + @"\Documents\Test\";
+            fileLocate.Text = _pictureTheme.locate;
             CreateExampleImg();
         }
 
@@ -218,7 +133,7 @@ namespace _91appExcelCreator
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                     {
                         CreateImg(g, i);
-                        newBitmap.Save(@"C:\Users\" + Environment.UserName + @"\Documents\Test\" + i + ProductImg1.Text, ImageFormat.Jpeg);
+                        newBitmap.Save(_pictureTheme.locate + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
                     _pictureTheme.CreateZip(int.Parse(amountOfData.Text), @"C:\Users\" + Environment.UserName + @"\Documents\Test\");
                     MessageBox.Show(@"圖片建立完成");
@@ -282,7 +197,90 @@ namespace _91appExcelCreator
             CreateExampleImg();
         }
 
-        
+        private static void InitialExcelTitles(Excel._Application excelApp)
+        {
+            excelApp.Cells[1, 1] = "商品品類";
+            excelApp.Cells[1, 2] = "商店類別";
+            excelApp.Cells[1, 3] = "商品名稱";
+            excelApp.Cells[1, 4] = "數量";
+            excelApp.Cells[1, 5] = "建議售價";
+            excelApp.Cells[1, 6] = "售價";
+            excelApp.Cells[1, 7] = "成本";
+            excelApp.Cells[1, 8] = "一次最高購買量";
+            excelApp.Cells[1, 9] = "銷售開始日期";
+            excelApp.Cells[1, 10] = "銷售結束日期";
+            excelApp.Cells[1, 11] = "交期";
+            excelApp.Cells[1, 12] = "預定出貨日期";
+            excelApp.Cells[1, 13] = "付款完成後幾天出貨";
+            excelApp.Cells[1, 14] = "配送方式";
+            excelApp.Cells[1, 15] = "付款方式";
+            excelApp.Cells[1, 16] = "商品選項";
+            excelApp.Cells[1, 17] = "商品選項一";
+            excelApp.Cells[1, 18] = "商品選項二";
+            excelApp.Cells[1, 19] = "商品料號";
+            excelApp.Cells[1, 20] = "商品選項圖檔";
+            excelApp.Cells[1, 21] = "商品規格";
 
+            excelApp.Cells[1, 22] = "商品圖檔一";
+            excelApp.Cells[1, 23] = "商品圖檔二";
+            excelApp.Cells[1, 24] = "商品圖檔三";
+            excelApp.Cells[1, 25] = "商品圖檔四";
+            excelApp.Cells[1, 26] = "商品圖檔五";
+            excelApp.Cells[1, 27] = "商品圖檔六";
+            excelApp.Cells[1, 28] = "商品圖檔七";
+            excelApp.Cells[1, 29] = "商品圖檔八";
+            excelApp.Cells[1, 30] = "商品圖檔九";
+            excelApp.Cells[1, 31] = "商品圖檔十";
+
+            excelApp.Cells[1, 32] = "銷售重點";
+            excelApp.Cells[1, 33] = "商品特色";
+            excelApp.Cells[1, 34] = "詳細說明";
+            excelApp.Cells[1, 35] = "商店名稱";
+            excelApp.Cells[1, 36] = "SEOTitle";
+            excelApp.Cells[1, 37] = "SEOKeyword";
+            excelApp.Cells[1, 38] = "SEODescription";
+            excelApp.Cells[1, 39] = "溫層類別";
+            excelApp.Cells[1, 40] = "商品材積(長x寬x高)";
+            excelApp.Cells[1, 41] = "商品重量";
+        }
+
+        private void DoExcel(Excel._Application excelApp, int amountValue)
+        {
+            for (var i = 2; i < amountValue + 2; i++)
+            {
+                excelApp.Cells[i, 1] = cbProductCategory.Text;
+                excelApp.Cells[i, 2] = StoreClass.Text;
+                excelApp.Cells[i, 3] = ProductName.Text + (i - 1);
+                excelApp.Cells[i, 4] = Quantity.Text;
+                excelApp.Cells[i, 5] = SugestPrice.Text;
+                excelApp.Cells[i, 6] = Price.Text;
+                excelApp.Cells[i, 7] = Cost.Text;
+                excelApp.Cells[i, 8] = HighestBuyQuantity.Text;
+                excelApp.Cells[i, 9] = StartDateTime.Text;
+                excelApp.Cells[i, 10] = EndDateTime.Text;
+                excelApp.Cells[i, 11] = Delivery.Text;
+                excelApp.Cells[i, 12] = ExpectedShippingDay.Text;
+                excelApp.Cells[i, 13] = AfterPayShippingDay.Text;
+                excelApp.Cells[i, 14] = ShippingType.Text;
+                excelApp.Cells[i, 15] = PayType.Text;
+                excelApp.Cells[i, 16] = ProductOption.Text;
+                excelApp.Cells[i, 17] = ProductOption1.Text;
+                excelApp.Cells[i, 18] = ProductOption2.Text;
+                excelApp.Cells[i, 19] = ProductNumber.Text;
+                excelApp.Cells[i, 20] = ProductOptionImg.Text;
+                excelApp.Cells[i, 21] = ProductSpec.Text;
+                excelApp.Cells[i, 22] = (i - 1) + ProductImg1.Text;
+                excelApp.Cells[i, 32] = SalePoint.Text;
+                excelApp.Cells[i, 33] = ProductFeature.Text;
+                excelApp.Cells[i, 34] = Detail.Text;
+                excelApp.Cells[i, 35] = cbStoreName.Text;
+                excelApp.Cells[i, 36] = SEOTitle.Text;
+                excelApp.Cells[i, 37] = SEOKeyword.Text;
+                excelApp.Cells[i, 38] = SEODescription.Text;
+                excelApp.Cells[i, 39] = WarmLayerClass.Text;
+                excelApp.Cells[i, 40] = Volume.Text;
+                excelApp.Cells[i, 41] = Weight.Text;
+            }
+        }
     }
 }

@@ -39,5 +39,7 @@ namespace _91appExcelCreator
             }
         }
 
+        public string locate { get; set; }
+
     }
 }

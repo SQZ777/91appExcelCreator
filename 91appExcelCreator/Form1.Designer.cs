@@ -102,6 +102,8 @@
             this.randomColor = new System.Windows.Forms.CheckBox();
             this.cbProductCategory = new System.Windows.Forms.ComboBox();
             this.cbStoreName = new System.Windows.Forms.ComboBox();
+            this.fileLocate = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,7 +204,6 @@
             this.label9.Size = new System.Drawing.Size(129, 24);
             this.label9.TabIndex = 8;
             this.label9.Text = "銷售開始日期:";
-            this.label9.Visible = false;
             // 
             // label10
             // 
@@ -213,7 +214,6 @@
             this.label10.Size = new System.Drawing.Size(129, 24);
             this.label10.TabIndex = 9;
             this.label10.Text = "銷售結束日期:";
-            this.label10.Visible = false;
             // 
             // label11
             // 
@@ -532,7 +532,6 @@
             this.StartDateTime.Name = "StartDateTime";
             this.StartDateTime.Size = new System.Drawing.Size(176, 25);
             this.StartDateTime.TabIndex = 39;
-            this.StartDateTime.Visible = false;
             // 
             // EndDateTime
             // 
@@ -543,7 +542,6 @@
             this.EndDateTime.Size = new System.Drawing.Size(176, 25);
             this.EndDateTime.TabIndex = 39;
             this.EndDateTime.Value = new System.DateTime(2018, 10, 23, 0, 0, 0, 0);
-            this.EndDateTime.Visible = false;
             // 
             // Delivery
             // 
@@ -881,11 +879,30 @@
             this.cbStoreName.TabIndex = 72;
             this.cbStoreName.Text = "FB Shop測試商店(請勿動資料)";
             // 
+            // fileLocate
+            // 
+            this.fileLocate.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.fileLocate.Location = new System.Drawing.Point(438, 315);
+            this.fileLocate.Name = "fileLocate";
+            this.fileLocate.Size = new System.Drawing.Size(246, 39);
+            this.fileLocate.TabIndex = 73;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(690, 315);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 40);
+            this.button2.TabIndex = 74;
+            this.button2.Text = "選取路徑";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 335);
+            this.ClientSize = new System.Drawing.Size(827, 628);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.fileLocate);
             this.Controls.Add(this.cbStoreName);
             this.Controls.Add(this.cbProductCategory);
             this.Controls.Add(this.randomColor);
@@ -1046,6 +1063,8 @@
         private System.Windows.Forms.CheckBox randomColor;
         private System.Windows.Forms.ComboBox cbProductCategory;
         private System.Windows.Forms.ComboBox cbStoreName;
+        private System.Windows.Forms.TextBox fileLocate;
+        private System.Windows.Forms.Button button2;
     }
 }
 
