@@ -104,6 +104,7 @@
             this.cbStoreName = new System.Windows.Forms.ComboBox();
             this.fileLocate = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,7 +200,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(82, 361);
+            this.label9.Location = new System.Drawing.Point(82, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(129, 24);
             this.label9.TabIndex = 8;
@@ -209,7 +210,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(82, 404);
+            this.label10.Location = new System.Drawing.Point(82, 189);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(129, 24);
             this.label10.TabIndex = 9;
@@ -528,7 +529,7 @@
             // 
             this.StartDateTime.CalendarFont = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.StartDateTime.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.StartDateTime.Location = new System.Drawing.Point(226, 360);
+            this.StartDateTime.Location = new System.Drawing.Point(226, 145);
             this.StartDateTime.Name = "StartDateTime";
             this.StartDateTime.Size = new System.Drawing.Size(176, 25);
             this.StartDateTime.TabIndex = 39;
@@ -537,7 +538,7 @@
             // 
             this.EndDateTime.CalendarFont = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.EndDateTime.Font = new System.Drawing.Font("微軟正黑體", 10F);
-            this.EndDateTime.Location = new System.Drawing.Point(226, 403);
+            this.EndDateTime.Location = new System.Drawing.Point(226, 188);
             this.EndDateTime.Name = "EndDateTime";
             this.EndDateTime.Size = new System.Drawing.Size(176, 25);
             this.EndDateTime.TabIndex = 39;
@@ -753,7 +754,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(620, 190);
+            this.button1.Location = new System.Drawing.Point(617, 261);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(176, 51);
             this.button1.TabIndex = 63;
@@ -764,7 +765,7 @@
             // amountOfData
             // 
             this.amountOfData.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.amountOfData.Location = new System.Drawing.Point(438, 202);
+            this.amountOfData.Location = new System.Drawing.Point(435, 273);
             this.amountOfData.Name = "amountOfData";
             this.amountOfData.Size = new System.Drawing.Size(176, 39);
             this.amountOfData.TabIndex = 64;
@@ -774,7 +775,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label32.Location = new System.Drawing.Point(434, 179);
+            this.label32.Location = new System.Drawing.Point(431, 250);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(78, 21);
             this.label32.TabIndex = 65;
@@ -782,7 +783,7 @@
             // 
             // CreateImgBtn
             // 
-            this.CreateImgBtn.Location = new System.Drawing.Point(620, 247);
+            this.CreateImgBtn.Location = new System.Drawing.Point(617, 318);
             this.CreateImgBtn.Name = "CreateImgBtn";
             this.CreateImgBtn.Size = new System.Drawing.Size(176, 51);
             this.CreateImgBtn.TabIndex = 63;
@@ -792,7 +793,7 @@
             // 
             // PickColor
             // 
-            this.PickColor.Location = new System.Drawing.Point(438, 247);
+            this.PickColor.Location = new System.Drawing.Point(435, 318);
             this.PickColor.Name = "PickColor";
             this.PickColor.Size = new System.Drawing.Size(176, 51);
             this.PickColor.TabIndex = 66;
@@ -802,7 +803,7 @@
             // 
             // example
             // 
-            this.example.Location = new System.Drawing.Point(202, 148);
+            this.example.Location = new System.Drawing.Point(252, 247);
             this.example.Name = "example";
             this.example.Size = new System.Drawing.Size(150, 150);
             this.example.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -812,7 +813,7 @@
             // pictureWords
             // 
             this.pictureWords.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pictureWords.Location = new System.Drawing.Point(55, 259);
+            this.pictureWords.Location = new System.Drawing.Point(105, 358);
             this.pictureWords.MaxLength = 4;
             this.pictureWords.Name = "pictureWords";
             this.pictureWords.Size = new System.Drawing.Size(127, 39);
@@ -824,7 +825,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label33.Location = new System.Drawing.Point(51, 235);
+            this.label33.Location = new System.Drawing.Point(101, 334);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(78, 21);
             this.label33.TabIndex = 69;
@@ -834,7 +835,7 @@
             // 
             this.randomColor.AutoSize = true;
             this.randomColor.Font = new System.Drawing.Font("微軟正黑體", 12F);
-            this.randomColor.Location = new System.Drawing.Point(438, 302);
+            this.randomColor.Location = new System.Drawing.Point(435, 373);
             this.randomColor.Name = "randomColor";
             this.randomColor.Size = new System.Drawing.Size(124, 24);
             this.randomColor.TabIndex = 70;
@@ -882,25 +883,37 @@
             // fileLocate
             // 
             this.fileLocate.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.fileLocate.Location = new System.Drawing.Point(438, 315);
+            this.fileLocate.Location = new System.Drawing.Point(435, 195);
             this.fileLocate.Name = "fileLocate";
             this.fileLocate.Size = new System.Drawing.Size(246, 39);
             this.fileLocate.TabIndex = 73;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(690, 315);
+            this.button2.Location = new System.Drawing.Point(687, 195);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 40);
             this.button2.TabIndex = 74;
             this.button2.Text = "選取路徑";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label34.Location = new System.Drawing.Point(431, 171);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(78, 21);
+            this.label34.TabIndex = 75;
+            this.label34.Text = "輸出路徑:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 628);
+            this.ClientSize = new System.Drawing.Size(827, 412);
+            this.Controls.Add(this.label34);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.fileLocate);
             this.Controls.Add(this.cbStoreName);
@@ -1065,6 +1078,7 @@
         private System.Windows.Forms.ComboBox cbStoreName;
         private System.Windows.Forms.TextBox fileLocate;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label34;
     }
 }
 

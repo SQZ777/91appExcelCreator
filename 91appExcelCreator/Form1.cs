@@ -17,7 +17,7 @@ namespace _91appExcelCreator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string pathFile = @"C:\Users\" + Environment.UserName + @"\Documents\" + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
+            string pathFile = _pictureTheme.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
             var excelApp = new Excel.Application
             {
                 Visible = true,
@@ -127,7 +127,7 @@ namespace _91appExcelCreator
                 new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
             try
             {
-                checkAndCreateFolder();
+                CheckAndCreateFolder();
                 try
                 {
                     for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
@@ -135,7 +135,7 @@ namespace _91appExcelCreator
                         CreateImg(g, i);
                         newBitmap.Save(_pictureTheme.locate + i + ProductImg1.Text, ImageFormat.Jpeg);
                     }
-                    _pictureTheme.CreateZip(int.Parse(amountOfData.Text), @"C:\Users\" + Environment.UserName + @"\Documents\Test\");
+                    _pictureTheme.CreateZip(int.Parse(amountOfData.Text));
                     MessageBox.Show(@"圖片建立完成");
                 }
                 catch (Exception exception)
@@ -185,10 +185,9 @@ namespace _91appExcelCreator
             }
         }
 
-        private void checkAndCreateFolder()
+        private void CheckAndCreateFolder()
         {
-            var folderName = @"C:\Users\" + Environment.UserName + @"\Documents\Test\";
-            var pathString = Path.Combine(folderName);
+            var pathString = Path.Combine(_pictureTheme.locate);
             Directory.CreateDirectory(pathString);
         }
 
@@ -280,6 +279,16 @@ namespace _91appExcelCreator
                 excelApp.Cells[i, 39] = WarmLayerClass.Text;
                 excelApp.Cells[i, 40] = Volume.Text;
                 excelApp.Cells[i, 41] = Weight.Text;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var browserDialog = new FolderBrowserDialog();
+            if (browserDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileLocate.Text = browserDialog.SelectedPath + @"\";
+                _pictureTheme.locate = browserDialog.SelectedPath + @"\";
             }
         }
     }

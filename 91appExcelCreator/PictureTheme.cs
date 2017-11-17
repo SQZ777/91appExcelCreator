@@ -27,15 +27,15 @@ namespace _91appExcelCreator
             return Color.FromArgb(r, g, b);
         }
 
-        public void CreateZip(int count,string locate)
+        public void CreateZip(int count)
         {
             using (var zip = new ZipFile("Test"))
             {
                 for (var i = 1; i <= count; i++)
                 {
-                    zip.AddFile(locate + i + ".jpg",string.Empty);
+                    zip.AddFile(this.locate + i + ".jpg",string.Empty);
                 }
-                zip.Save(locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + @"_test.zip");
+                zip.Save(this.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + @"_test.zip");
             }
         }
 
