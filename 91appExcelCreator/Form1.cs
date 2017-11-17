@@ -178,9 +178,10 @@ namespace _91appExcelCreator
 
         private void PickColor_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            var colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                _pictureTheme.BackgroundColor = colorDialog1.Color;
+                _pictureTheme.BackgroundColor = colorDialog.Color;
                 CreateExampleImg();
             }
         }
@@ -194,6 +195,16 @@ namespace _91appExcelCreator
         private void pictureWords_TextChanged(object sender, EventArgs e)
         {
             CreateExampleImg();
+        }
+
+        private void PickFolder_Click(object sender, EventArgs e)
+        {
+            var browserDialog = new FolderBrowserDialog();
+            if (browserDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileLocate.Text = browserDialog.SelectedPath + @"\";
+                _pictureTheme.locate = browserDialog.SelectedPath + @"\";
+            }
         }
 
         private static void InitialExcelTitles(Excel._Application excelApp)
@@ -279,16 +290,6 @@ namespace _91appExcelCreator
                 excelApp.Cells[i, 39] = WarmLayerClass.Text;
                 excelApp.Cells[i, 40] = Volume.Text;
                 excelApp.Cells[i, 41] = Weight.Text;
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var browserDialog = new FolderBrowserDialog();
-            if (browserDialog.ShowDialog() == DialogResult.OK)
-            {
-                fileLocate.Text = browserDialog.SelectedPath + @"\";
-                _pictureTheme.locate = browserDialog.SelectedPath + @"\";
             }
         }
     }

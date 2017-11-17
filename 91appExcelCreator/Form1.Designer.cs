@@ -94,7 +94,6 @@
             this.amountOfData = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.CreateImgBtn = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PickColor = new System.Windows.Forms.Button();
             this.example = new System.Windows.Forms.PictureBox();
             this.pictureWords = new System.Windows.Forms.TextBox();
@@ -103,7 +102,7 @@
             this.cbProductCategory = new System.Windows.Forms.ComboBox();
             this.cbStoreName = new System.Windows.Forms.ComboBox();
             this.fileLocate = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pickFolder = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
             this.SuspendLayout();
@@ -888,15 +887,15 @@
             this.fileLocate.Size = new System.Drawing.Size(246, 39);
             this.fileLocate.TabIndex = 73;
             // 
-            // button2
+            // pickFolder
             // 
-            this.button2.Location = new System.Drawing.Point(687, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 40);
-            this.button2.TabIndex = 74;
-            this.button2.Text = "選取路徑";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.pickFolder.Location = new System.Drawing.Point(687, 195);
+            this.pickFolder.Name = "pickFolder";
+            this.pickFolder.Size = new System.Drawing.Size(106, 40);
+            this.pickFolder.TabIndex = 74;
+            this.pickFolder.Text = "選取路徑";
+            this.pickFolder.UseVisualStyleBackColor = true;
+            this.pickFolder.Click += new System.EventHandler(this.PickFolder_Click);
             // 
             // label34
             // 
@@ -914,7 +913,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 412);
             this.Controls.Add(this.label34);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pickFolder);
             this.Controls.Add(this.fileLocate);
             this.Controls.Add(this.cbStoreName);
             this.Controls.Add(this.cbProductCategory);
@@ -1068,7 +1067,6 @@
         private System.Windows.Forms.TextBox amountOfData;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button CreateImgBtn;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button PickColor;
         private System.Windows.Forms.PictureBox example;
         private System.Windows.Forms.TextBox pictureWords;
@@ -1077,7 +1075,7 @@
         private System.Windows.Forms.ComboBox cbProductCategory;
         private System.Windows.Forms.ComboBox cbStoreName;
         private System.Windows.Forms.TextBox fileLocate;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button pickFolder;
         private System.Windows.Forms.Label label34;
     }
 }
