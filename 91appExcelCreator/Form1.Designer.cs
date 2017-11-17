@@ -90,7 +90,7 @@
             this.Weight = new System.Windows.Forms.TextBox();
             this.ProductOption = new System.Windows.Forms.TextBox();
             this.LbProductOption = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.OutputExcel = new System.Windows.Forms.Button();
             this.amountOfData = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.CreateImgBtn = new System.Windows.Forms.Button();
@@ -751,15 +751,15 @@
             this.LbProductOption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LbProductOption.Visible = false;
             // 
-            // button1
+            // OutputExcel
             // 
-            this.button1.Location = new System.Drawing.Point(617, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 51);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Output";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.OutputExcel.Location = new System.Drawing.Point(617, 261);
+            this.OutputExcel.Name = "OutputExcel";
+            this.OutputExcel.Size = new System.Drawing.Size(176, 51);
+            this.OutputExcel.TabIndex = 63;
+            this.OutputExcel.Text = "輸出Excel";
+            this.OutputExcel.UseVisualStyleBackColor = true;
+            this.OutputExcel.Click += new System.EventHandler(this.OutputExcel_Click);
             // 
             // amountOfData
             // 
@@ -925,7 +925,7 @@
             this.Controls.Add(this.label32);
             this.Controls.Add(this.amountOfData);
             this.Controls.Add(this.CreateImgBtn);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.OutputExcel);
             this.Controls.Add(this.ProductOption);
             this.Controls.Add(this.LbProductOption);
             this.Controls.Add(this.Weight);
@@ -1063,7 +1063,7 @@
         private System.Windows.Forms.TextBox Weight;
         private System.Windows.Forms.TextBox ProductOption;
         private System.Windows.Forms.Label LbProductOption;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OutputExcel;
         private System.Windows.Forms.TextBox amountOfData;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button CreateImgBtn;

@@ -15,7 +15,7 @@ namespace _91appExcelCreator
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OutputExcel_Click(object sender, EventArgs e)
         {
             string pathFile = _pictureTheme.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
             var excelApp = new Excel.Application
