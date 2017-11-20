@@ -15,83 +15,6 @@ namespace _91appExcelCreator
             InitializeComponent();
         }
 
-        private void OutputExcel_Click(object sender, EventArgs e)
-        {
-            string pathFile = _pictureTheme.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
-            var excelApp = new Excel.Application
-            {
-                Visible = true,
-                DisplayAlerts = false
-            };
-            excelApp.Workbooks.Add(Type.Missing);
-            Excel._Workbook wBook = excelApp.Workbooks[1];
-
-            try
-            {
-                var worksheet = SetFirstWorkSheet(wBook, excelApp);
-                DoExcel(excelApp, int.Parse(amountOfData.Text));
-                AutoFitExcelContent(worksheet);
-                AddWorkSheet(wBook, excelApp, "Sheet3", false);
-                worksheet.Move(wBook.Sheets[1]);
-                AddWorkSheet(wBook, excelApp, "資料驗證, 請勿刪除", true);
-                worksheet.Move(wBook.Sheets[1]);
-                try
-                {
-                    wBook.SaveAs(pathFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                    MessageBox.Show("儲存文件於 " + Environment.NewLine + pathFile);
-                    Console.WriteLine("儲存文件於 " + Environment.NewLine + pathFile);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("儲存檔案出錯，檔案可能正在使用" + Environment.NewLine + ex.Message);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("產生報表時出錯！" + Environment.NewLine + ex.Message);
-            }
-            wBook.Close(false, Type.Missing, Type.Missing);
-            excelApp.Quit();
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-            GC.Collect();
-            Console.Read();
-        }
-
-        private static Excel._Worksheet SetFirstWorkSheet(Excel._Workbook wBook, Excel.Application excelApp)
-        {
-            var wSheet = (Excel._Worksheet)wBook.Worksheets[1];
-            wSheet.Name = "商品資料";
-            wSheet.Activate();
-            InitialExcelTitles(excelApp);
-            var wRange = wSheet.Range[wSheet.Cells[1, 1], wSheet.Cells[1, 41]];
-            wRange.Select();
-            wRange.Font.Color = ColorTranslator.ToOle(Color.White);
-            wRange.Interior.Color = ColorTranslator.ToOle(Color.DimGray);
-            return wSheet;
-        }
-
-        private static void AddWorkSheet(Excel._Workbook wBook, Excel._Application excelApp, string sheetName, bool needCreate)
-        {
-            excelApp.Worksheets.Add();
-            var wSheet = (Excel._Worksheet)wBook.Worksheets[1];
-            wSheet.Name = sheetName;
-            wSheet.Activate();
-            if (needCreate)
-            {
-                excelApp.Cells[1, 1] = "交期";
-                excelApp.Cells[2, 1] = "一般";
-                excelApp.Cells[3, 1] = "預購";
-                excelApp.Cells[4, 1] = "訂製";
-            }
-        }
-
-        private void AutoFitExcelContent(Excel._Worksheet workSheet)
-        {
-            var wRange = workSheet.Range[workSheet.Cells[1, 1], workSheet.Cells[int.Parse(amountOfData.Text), 41]];
-            wRange.Select();
-            wRange.Columns.AutoFit();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             _pictureTheme.BackgroundColor = Color.Black;
@@ -104,76 +27,126 @@ namespace _91appExcelCreator
             CreateExampleImg();
         }
 
-        private void CreateExampleImg()
-        {
-            var exampleImage = new Bitmap(_pictureTheme.Width, _pictureTheme.Height, PixelFormat.Format32bppArgb);
-            var g = Graphics.FromImage(exampleImage);
-            g.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
-                new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
-            CreateImg(g, 0);
-            example.Image = exampleImage;
-        }
 
         private void Form1_Activated(object sender, EventArgs e)
         {
             amountOfData.Focus();
         }
 
+        private void pictureWords_TextChanged(object sender, EventArgs e)
+        {
+            CreateExampleImg();
+        }
+
         private void CreateImgBtn_Click(object sender, EventArgs e)
         {
-            var newBitmap = new Bitmap(_pictureTheme.Width, _pictureTheme.Height, PixelFormat.Format32bppArgb);
-            var g = Graphics.FromImage(newBitmap);
-            g.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
+            var bitmap = new Bitmap(_pictureTheme.Width, _pictureTheme.Height,
+                PixelFormat.Format32bppArgb);
+            var graphics = Graphics.FromImage(bitmap);
+            graphics.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
                 new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
+
+            CheckAndCreateFolder();
             try
             {
-                CheckAndCreateFolder();
-                try
+                for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                 {
-                    for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
-                    {
-                        CreateImg(g, i);
-                        newBitmap.Save(_pictureTheme.locate + i + ProductImg1.Text, ImageFormat.Jpeg);
-                    }
-                    _pictureTheme.CreateZip(int.Parse(amountOfData.Text));
-                    MessageBox.Show(@"圖片建立完成");
+                    CreateImg(graphics, i);
+                    bitmap.Save(_pictureTheme.locate + i + ProductImg1.Text, ImageFormat.Jpeg);
                 }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.ToString());
-                    throw;
-                }
+                _pictureTheme.CreateZip(int.Parse(amountOfData.Text));
+                MessageBox.Show(@"圖片建立完成");
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                Console.WriteLine(ex.ToString());
+                MessageBox.Show(exception.ToString());
+                throw;
             }
             finally
             {
-                g?.Dispose();
-                newBitmap?.Dispose();
+                graphics?.Dispose();
+                bitmap?.Dispose();
             }
         }
 
-        private void CreateImg(Graphics g, int i)
+        /// <summary>
+        /// 創建圖片的Function
+        /// </summary>
+        private void CreateExampleImg()
         {
-            var stringWidth = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Width / 2;
-            var stringHeight = (int)g.MeasureString(pictureWords.Text + i, _pictureTheme.FontCounter).Height / 2;
+            var exampleImage = new Bitmap(_pictureTheme.Width, _pictureTheme.Height,
+                PixelFormat.Format32bppArgb);
+            var graphics = Graphics.FromImage(exampleImage);
+            graphics.FillRectangle(new SolidBrush(_pictureTheme.BackgroundColor),
+                new Rectangle(0, 0, _pictureTheme.Width, _pictureTheme.Height));
+            CreateImg(graphics, 0);
+            example.Image = exampleImage;
+        }
+
+        /// <summary>
+        /// 創建圖片
+        /// </summary>
+        /// <param name="graphics">要繪製的圖像</param>
+        /// <param name="number">文字後的數字</param>
+        private void CreateImg(Graphics graphics, int number)
+        {
+            var stringWidth = (int)graphics.MeasureString(pictureWords.Text + number, _pictureTheme.FontCounter).Width / 2;
+            var stringHeight = (int)graphics.MeasureString(pictureWords.Text + number, _pictureTheme.FontCounter).Height / 2;
             if (randomColor.Checked)
             {
                 _pictureTheme.BackgroundColor = _pictureTheme.GetRandomColor();
             }
-            g.Clear(_pictureTheme.BackgroundColor);
-            var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
-            var middleHeight = (_pictureTheme.Height / 2) - stringHeight;
-            Drawing(g, pictureWords.Text.Insert(pictureWords.TextLength, i.ToString()), _pictureTheme.FontCounter, Color.DarkMagenta, middleWidth, middleHeight - 150);
-            Drawing(g, pictureWords.Text.Insert(pictureWords.TextLength / 2, i.ToString()), _pictureTheme.FontCounter, Color.Yellow, middleWidth, middleHeight);
-            Drawing(g, pictureWords.Text.Insert(0, i.ToString()), _pictureTheme.FontCounter, Color.SeaGreen, middleWidth, middleHeight + 150);
+            graphics.Clear(_pictureTheme.BackgroundColor);
+
+            DrawCharacter(graphics, number, stringWidth, stringHeight);
         }
 
-        private static void Drawing(Graphics g, string drawString, Font font, Color color, int positionX, int positionY)
+        private void CheckAndCreateFolder()
         {
-            g.DrawString(drawString, font, new SolidBrush(color), positionX, positionY);
+            var pathString = Path.Combine(_pictureTheme.locate);
+            Directory.CreateDirectory(pathString);
+        }
+
+        private void DrawCharacter(Graphics graphics, int number, int stringWidth, int stringHeight)
+        {
+            var middleWidth = (_pictureTheme.Width / 2) - stringWidth;
+            var middleHeight = (_pictureTheme.Height / 2) - stringHeight;
+
+            Drawing(graphics,
+                pictureWords.Text.Insert(pictureWords.TextLength, number.ToString()),
+                _pictureTheme.FontCounter,
+                Color.DarkMagenta,
+                middleWidth,
+                middleHeight - 150);
+
+            Drawing(graphics,
+                pictureWords.Text.Insert(pictureWords.TextLength / 2,
+                    number.ToString()),
+                _pictureTheme.FontCounter,
+                Color.Yellow,
+                middleWidth,
+                middleHeight);
+
+            Drawing(graphics,
+                pictureWords.Text.Insert(0, number.ToString()),
+                _pictureTheme.FontCounter,
+                Color.SeaGreen,
+                middleWidth,
+                middleHeight + 150);
+        }
+
+        /// <summary>
+        /// 繪製文字的Function
+        /// </summary>
+        /// <param name="graphics">要被繪製的圖像</param>
+        /// <param name="drawString">要繪製上去的文字</param>
+        /// <param name="font">繪製上去的文字字型</param>
+        /// <param name="color">繪製上去的文字顏色</param>
+        /// <param name="positionX">文字的左上角X位置</param>
+        /// <param name="positionY">文字的左上角Y位置</param>
+        private static void Drawing(Graphics graphics, string drawString, Font font, Color color, int positionX, int positionY)
+        {
+            graphics.DrawString(drawString, font, new SolidBrush(color), positionX, positionY);
         }
 
         private void PickColor_Click(object sender, EventArgs e)
@@ -186,17 +159,6 @@ namespace _91appExcelCreator
             }
         }
 
-        private void CheckAndCreateFolder()
-        {
-            var pathString = Path.Combine(_pictureTheme.locate);
-            Directory.CreateDirectory(pathString);
-        }
-
-        private void pictureWords_TextChanged(object sender, EventArgs e)
-        {
-            CreateExampleImg();
-        }
-
         private void PickFolder_Click(object sender, EventArgs e)
         {
             var browserDialog = new FolderBrowserDialog();
@@ -205,6 +167,45 @@ namespace _91appExcelCreator
                 fileLocate.Text = browserDialog.SelectedPath + @"\";
                 _pictureTheme.locate = browserDialog.SelectedPath + @"\";
             }
+        }
+
+        private void OutputExcel_Click(object sender, EventArgs e)
+        {
+            string pathFile = _pictureTheme.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
+            var excelApp = new Excel.Application
+            {
+                Visible = true,
+                DisplayAlerts = false
+            };
+            excelApp.Workbooks.Add(Type.Missing);
+            var workbook = excelApp.Workbooks[1];
+            try
+            {
+                var worksheet = SetFirstWorkSheet(workbook, excelApp);
+                DoExcel(excelApp, int.Parse(amountOfData.Text));
+                AutoFitExcelContent(worksheet);
+                AddWorkSheet(workbook, excelApp, "Sheet3", false);
+                worksheet.Move(workbook.Sheets[1]);
+                AddWorkSheet(workbook, excelApp, "資料驗證, 請勿刪除", true);
+                worksheet.Move(workbook.Sheets[1]);
+                try
+                {
+                    workbook.SaveAs(pathFile, Excel.XlSaveAsAccessMode.xlNoChange);
+                    MessageBox.Show("儲存文件於 " + Environment.NewLine + pathFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("儲存檔案出錯，檔案可能正在使用" + Environment.NewLine + ex.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("產生報表時出錯！" + Environment.NewLine + ex.Message);
+            }
+            workbook.Close(false);
+            excelApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            GC.Collect();
         }
 
         private static void InitialExcelTitles(Excel._Application excelApp)
@@ -254,6 +255,34 @@ namespace _91appExcelCreator
             excelApp.Cells[1, 41] = "商品重量";
         }
 
+        private static Excel._Worksheet SetFirstWorkSheet(Excel._Workbook workbook, Excel.Application excelApp)
+        {
+            var firstWorkSheet = (Excel._Worksheet)workbook.Worksheets[1];
+            firstWorkSheet.Name = "商品資料";
+            firstWorkSheet.Activate();
+            InitialExcelTitles(excelApp);
+            var range = firstWorkSheet.Range[firstWorkSheet.Cells[1, 1], firstWorkSheet.Cells[1, 41]];
+            range.Select();
+            range.Font.Color = ColorTranslator.ToOle(Color.White);
+            range.Interior.Color = ColorTranslator.ToOle(Color.DimGray);
+            return firstWorkSheet;
+        }
+
+        private static void AddWorkSheet(Excel._Workbook workbook, Excel._Application excelApp, string sheetName, bool needCreate)
+        {
+            excelApp.Worksheets.Add();
+            var wSheet = (Excel._Worksheet)workbook.Worksheets[1];
+            wSheet.Name = sheetName;
+            wSheet.Activate();
+            if (needCreate)
+            {
+                excelApp.Cells[1, 1] = "交期";
+                excelApp.Cells[2, 1] = "一般";
+                excelApp.Cells[3, 1] = "預購";
+                excelApp.Cells[4, 1] = "訂製";
+            }
+        }
+
         private void DoExcel(Excel._Application excelApp, int amountValue)
         {
             for (var i = 2; i < amountValue + 2; i++)
@@ -291,6 +320,13 @@ namespace _91appExcelCreator
                 excelApp.Cells[i, 40] = Volume.Text;
                 excelApp.Cells[i, 41] = Weight.Text;
             }
+        }
+
+        private void AutoFitExcelContent(Excel._Worksheet workSheet)
+        {
+            var range = workSheet.Range[workSheet.Cells[1, 1], workSheet.Cells[int.Parse(amountOfData.Text), 41]];
+            range.Select();
+            range.Columns.AutoFit();
         }
     }
 }
