@@ -1,21 +1,18 @@
-﻿using System;
+﻿using Ionic.Zip;
+using System;
 using System.Drawing;
 using System.Threading;
-using System.IO;
-using System.Windows.Forms;
-using Ionic.Zip;
-using Ionic.Zlib;
 
 namespace _91appExcelCreator
 {
-
-    class PictureTheme
+    internal class PictureTheme
     {
         public Color BackgroundColor { get; set; }
         public string Words { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
         public Font FontCounter { get; set; }
+
         public Color GetRandomColor()
         {
             var random = new Random();
@@ -33,13 +30,12 @@ namespace _91appExcelCreator
             {
                 for (var i = 1; i <= count; i++)
                 {
-                    zip.AddFile(this.locate + i + ".jpg",string.Empty);
+                    zip.AddFile(this.locate + i + ".jpg", string.Empty);
                 }
                 zip.Save(this.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + @"_test.zip");
             }
         }
 
         public string locate { get; set; }
-
     }
 }

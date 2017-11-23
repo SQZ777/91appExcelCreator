@@ -886,6 +886,7 @@
             this.fileLocate.Name = "fileLocate";
             this.fileLocate.Size = new System.Drawing.Size(246, 39);
             this.fileLocate.TabIndex = 73;
+            this.fileLocate.TextChanged += new System.EventHandler(this.fileLocate_TextChanged);
             // 
             // pickFolder
             // 
