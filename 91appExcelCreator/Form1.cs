@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.Office.Core;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace _91appExcelCreator
@@ -164,7 +165,7 @@ namespace _91appExcelCreator
                 for (int i = 1; i <= int.Parse(amountOfData.Text); i++)
                 {
                     CreateImg(graphics, i);
-                    bitmap.Save(_pictureTheme.locate + i + ProductImg1.Text, ImageFormat.Jpeg);
+                    bitmap.Save(_pictureTheme.locate + i + ProductImg1.Text, _pictureTheme.ImageFormat);
                 }
                 _pictureTheme.CreateZip(int.Parse(amountOfData.Text));
                 MessageBox.Show(@"圖片建立完成");
@@ -267,6 +268,7 @@ namespace _91appExcelCreator
             _pictureTheme.Height = 400;
             _pictureTheme.FontCounter = new Font("微軟正黑體", 48);
             _pictureTheme.locate = @"C:\Users\" + Environment.UserName + @"\Documents\Test\";
+            _pictureTheme.ImageFormat = ImageFormat.Jpeg;
             fileLocate.Text = _pictureTheme.locate;
             CreateExampleImg();
         }
@@ -339,7 +341,7 @@ namespace _91appExcelCreator
 
         private void imgWidth_ValueChanged(object sender, EventArgs e)
         {
-            _pictureTheme.Width = (int) imgWidth.Value;
+            _pictureTheme.Width = (int)imgWidth.Value;
             CreateExampleImg();
         }
 
@@ -349,6 +351,16 @@ namespace _91appExcelCreator
             _pictureTheme.Height = (int)imgHeight.Value;
             CreateExampleImg();
 
+        }
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _pictureTheme.ImageFormat = radioButton1.Checked ? ImageFormat.Jpeg : ImageFormat.Png;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+            _pictureTheme.ImageFormat = radioButton1.Checked ? ImageFormat.Png : ImageFormat.Jpeg;
         }
     }
 }

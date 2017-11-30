@@ -1,6 +1,7 @@
 ﻿using Ionic.Zip;
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading;
 
 namespace _91appExcelCreator
@@ -12,7 +13,7 @@ namespace _91appExcelCreator
         public int Width { get; set; }
         public int Height { get; set; }
         public Font FontCounter { get; set; }
-
+        public ImageFormat ImageFormat { get; set; }
         public Color GetRandomColor()
         {
             var random = new Random();
