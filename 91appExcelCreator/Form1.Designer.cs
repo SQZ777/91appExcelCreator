@@ -104,7 +104,13 @@
             this.fileLocate = new System.Windows.Forms.TextBox();
             this.pickFolder = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
+            this.imgWidth = new System.Windows.Forms.NumericUpDown();
+            this.imgHeight = new System.Windows.Forms.NumericUpDown();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.example)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -908,11 +914,73 @@
             this.label34.TabIndex = 75;
             this.label34.Text = "輸出路徑:";
             // 
+            // imgWidth
+            // 
+            this.imgWidth.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.imgWidth.Location = new System.Drawing.Point(112, 221);
+            this.imgWidth.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.imgWidth.Name = "imgWidth";
+            this.imgWidth.Size = new System.Drawing.Size(120, 39);
+            this.imgWidth.TabIndex = 76;
+            this.imgWidth.Value = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
+            this.imgWidth.ValueChanged += new System.EventHandler(this.imgWidth_ValueChanged);
+            // 
+            // imgHeight
+            // 
+            this.imgHeight.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.imgHeight.Location = new System.Drawing.Point(112, 276);
+            this.imgHeight.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.imgHeight.Name = "imgHeight";
+            this.imgHeight.Size = new System.Drawing.Size(120, 39);
+            this.imgHeight.TabIndex = 77;
+            this.imgHeight.Value = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
+            this.imgHeight.ValueChanged += new System.EventHandler(this.imgHeight_ValueChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label35.Location = new System.Drawing.Point(15, 281);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(91, 24);
+            this.label35.TabIndex = 78;
+            this.label35.Text = "圖片高度:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label36.Location = new System.Drawing.Point(15, 228);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(91, 24);
+            this.label36.TabIndex = 79;
+            this.label36.Text = "圖片寬度:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 412);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.imgHeight);
+            this.Controls.Add(this.imgWidth);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.pickFolder);
             this.Controls.Add(this.fileLocate);
@@ -995,6 +1063,8 @@
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.example)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1078,6 +1148,10 @@
         private System.Windows.Forms.TextBox fileLocate;
         private System.Windows.Forms.Button pickFolder;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.NumericUpDown imgWidth;
+        private System.Windows.Forms.NumericUpDown imgHeight;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
     }
 }
 

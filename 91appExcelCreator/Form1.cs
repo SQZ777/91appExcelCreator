@@ -217,6 +217,7 @@ namespace _91appExcelCreator
                 excelApp.Cells[i, 39] = WarmLayerClass.Text;
                 excelApp.Cells[i, 40] = Volume.Text;
                 excelApp.Cells[i, 41] = Weight.Text;
+                excelApp.Cells[1, 1] = Convert.ToString(1314520, 16);
             }
         }
 
@@ -334,6 +335,20 @@ namespace _91appExcelCreator
         private void pictureWords_TextChanged(object sender, EventArgs e)
         {
             CreateExampleImg();
+        }
+
+        private void imgWidth_ValueChanged(object sender, EventArgs e)
+        {
+            _pictureTheme.Width = (int) imgWidth.Value;
+            CreateExampleImg();
+        }
+
+        private void imgHeight_ValueChanged(object sender, EventArgs e)
+        {
+
+            _pictureTheme.Height = (int)imgHeight.Value;
+            CreateExampleImg();
+
         }
     }
 }
