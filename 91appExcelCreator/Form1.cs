@@ -46,6 +46,45 @@ namespace _91appExcelCreator
             graphics.DrawString(drawString, font, new SolidBrush(color), positionX, positionY);
         }
 
+        private void DoExcel(Excel._Application excelApp, int amountValue)
+        {
+            for (var i = 2; i < amountValue + 2; i++)
+            {
+                excelApp.Cells[i, 1] = cbProductCategory.Text;
+                excelApp.Cells[i, 2] = StoreClass.Text;
+                excelApp.Cells[i, 3] = ProductName.Text + (i - 1);
+                excelApp.Cells[i, 4] = Quantity.Text;
+                excelApp.Cells[i, 5] = SugestPrice.Text;
+                excelApp.Cells[i, 6] = Price.Text;
+                excelApp.Cells[i, 7] = Cost.Text;
+                excelApp.Cells[i, 8] = HighestBuyQuantity.Text;
+                excelApp.Cells[i, 9] = StartDateTime.Text;
+                excelApp.Cells[i, 10] = EndDateTime.Text;
+                excelApp.Cells[i, 11] = Delivery.Text;
+                excelApp.Cells[i, 12] = ExpectedShippingDay.Text;
+                excelApp.Cells[i, 13] = AfterPayShippingDay.Text;
+                excelApp.Cells[i, 14] = ShippingType.Text;
+                excelApp.Cells[i, 15] = PayType.Text;
+                excelApp.Cells[i, 16] = ProductOption.Text;
+                excelApp.Cells[i, 17] = ProductOption1.Text;
+                excelApp.Cells[i, 18] = ProductOption2.Text;
+                excelApp.Cells[i, 19] = ProductNumber.Text;
+                excelApp.Cells[i, 20] = ProductOptionImg.Text;
+                excelApp.Cells[i, 21] = ProductSpec.Text;
+                excelApp.Cells[i, 22] = (i - 1) + ProductImg1.Text;
+                excelApp.Cells[i, 32] = SalePoint.Text;
+                excelApp.Cells[i, 33] = ProductFeature.Text;
+                excelApp.Cells[i, 34] = Detail.Text;
+                excelApp.Cells[i, 35] = cbStoreName.Text;
+                excelApp.Cells[i, 36] = SEOTitle.Text;
+                excelApp.Cells[i, 37] = SEOKeyword.Text;
+                excelApp.Cells[i, 38] = SEODescription.Text;
+                excelApp.Cells[i, 39] = WarmLayerClass.Text;
+                excelApp.Cells[i, 40] = Volume.Text;
+                excelApp.Cells[i, 41] = Weight.Text;
+            }
+        }
+
         private static void InitialExcelTitles(Excel._Application excelApp)
         {
             excelApp.Cells[1, 1] = "商品品類";
@@ -182,45 +221,7 @@ namespace _91appExcelCreator
             }
         }
 
-        private void DoExcel(Excel._Application excelApp, int amountValue)
-        {
-            for (var i = 2; i < amountValue + 2; i++)
-            {
-                excelApp.Cells[i, 1] = cbProductCategory.Text;
-                excelApp.Cells[i, 2] = StoreClass.Text;
-                excelApp.Cells[i, 3] = ProductName.Text + (i - 1);
-                excelApp.Cells[i, 4] = Quantity.Text;
-                excelApp.Cells[i, 5] = SugestPrice.Text;
-                excelApp.Cells[i, 6] = Price.Text;
-                excelApp.Cells[i, 7] = Cost.Text;
-                excelApp.Cells[i, 8] = HighestBuyQuantity.Text;
-                excelApp.Cells[i, 9] = StartDateTime.Text;
-                excelApp.Cells[i, 10] = EndDateTime.Text;
-                excelApp.Cells[i, 11] = Delivery.Text;
-                excelApp.Cells[i, 12] = ExpectedShippingDay.Text;
-                excelApp.Cells[i, 13] = AfterPayShippingDay.Text;
-                excelApp.Cells[i, 14] = ShippingType.Text;
-                excelApp.Cells[i, 15] = PayType.Text;
-                excelApp.Cells[i, 16] = ProductOption.Text;
-                excelApp.Cells[i, 17] = ProductOption1.Text;
-                excelApp.Cells[i, 18] = ProductOption2.Text;
-                excelApp.Cells[i, 19] = ProductNumber.Text;
-                excelApp.Cells[i, 20] = ProductOptionImg.Text;
-                excelApp.Cells[i, 21] = ProductSpec.Text;
-                excelApp.Cells[i, 22] = (i - 1) + ProductImg1.Text;
-                excelApp.Cells[i, 32] = SalePoint.Text;
-                excelApp.Cells[i, 33] = ProductFeature.Text;
-                excelApp.Cells[i, 34] = Detail.Text;
-                excelApp.Cells[i, 35] = cbStoreName.Text;
-                excelApp.Cells[i, 36] = SEOTitle.Text;
-                excelApp.Cells[i, 37] = SEOKeyword.Text;
-                excelApp.Cells[i, 38] = SEODescription.Text;
-                excelApp.Cells[i, 39] = WarmLayerClass.Text;
-                excelApp.Cells[i, 40] = Volume.Text;
-                excelApp.Cells[i, 41] = Weight.Text;
-                excelApp.Cells[1, 1] = Convert.ToString(1314520, 16);
-            }
-        }
+       
 
         private void DrawCharacter(Graphics graphics, int number, int stringWidth, int stringHeight)
         {
@@ -275,7 +276,7 @@ namespace _91appExcelCreator
 
         private void OutputExcel_Click(object sender, EventArgs e)
         {
-            var pathFile = @"C:\Users\" + Environment.UserName + @"\Documents\Test\" + "test.xlsx";
+            var pathFile = _pictureTheme.locate + DateTime.Now.ToString("yyyy-MM-dd,HH-mm-ss") + ".xlsx";
 
             var excelApp = new Excel.Application
             {
@@ -297,6 +298,7 @@ namespace _91appExcelCreator
                 {
                     workbook.SaveAs(pathFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                     MessageBox.Show("儲存文件於 " + Environment.NewLine + pathFile);
+                    Console.WriteLine("儲存文件於 " + Environment.NewLine + pathFile);
                 }
                 catch (Exception ex)
                 {
@@ -352,15 +354,6 @@ namespace _91appExcelCreator
             CreateExampleImg();
 
         }
-        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
-        {
-            _pictureTheme.ImageFormat = radioButton1.Checked ? ImageFormat.Jpeg : ImageFormat.Png;
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-            _pictureTheme.ImageFormat = radioButton1.Checked ? ImageFormat.Png : ImageFormat.Jpeg;
-        }
+        
     }
 }
